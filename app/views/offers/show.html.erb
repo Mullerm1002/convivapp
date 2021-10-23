@@ -6,8 +6,14 @@
 <p><%= @offer.photo %></p>
 <p><%= @offer.meal %></p>
 <br>
-<%= link_to "Retour aux propositions", offers_path(@offer), class: "btn btn-primary" %>
+<%= link_to "Retour aux propositions", offers_path(), class: "btn btn-primary" %>
 <%= link_to "Modifier cette proposition", edit_offer_path(@offer), class: "btn btn-warning" %>
+<% if @offer.reservation.nil?%>
+  <%= link_to "Réserver L'invitation", new_offer_reservation_path(@offer), class: "btn btn-primary" %>
+<% else %>
+  <button type="button" class="btn btn btn-primary" disabled>Offre en cours de réservation</button>
+
+<% end %>
 <%= link_to "Supprimer #{@offer.title}",
               offer_path(@offer),
               method: :delete,
