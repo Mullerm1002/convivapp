@@ -1,2 +1,6 @@
-<h1>Reservations#index</h1>
-<p>Find me in app/views/reservations/index.html.erb</p>
+<h1>Mes reservations de repas</h1>
+<ul>
+  <% @reservations.each do |reservation| %>
+    <li><%= link_to reservation.offer.title, offer_path(reservation.offer) %></li>
+  <% end %>
+</ul>
