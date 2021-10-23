@@ -5,3 +5,11 @@
 <p><%= @offer.description %></p>
 <p><%= @offer.photo %></p>
 <p><%= @offer.meal %></p>
+<br>
+<%= link_to "Retour aux propositions", offers_path(@offer), class: "btn btn-primary" %>
+<%= link_to "Modifier cette proposition", edit_offer_path(@offer), class: "btn btn-warning" %>
+<%= link_to "Supprimer #{@offer.title}",
+              offer_path(@offer),
+              method: :delete,
+              data: { confirm: "Are you sure?" },
+              class: "btn btn-danger" %>
