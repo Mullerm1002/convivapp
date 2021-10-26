@@ -1,6 +1,6 @@
 class OffersController < ApplicationController
   before_action :set_offer, only: [:show, :edit, :update, :destroy]
-  
+
   def index
     @offers = Offer.all.select { |offer| offer.reservation.nil? || "en attente de validation" }
   end
@@ -11,7 +11,6 @@ class OffersController < ApplicationController
 
   def create
     @offer = Offer.new(offer_params)
-    @offer.user = current_user
     @offer.save!
     redirect_to offer_path(@offer)
   end
