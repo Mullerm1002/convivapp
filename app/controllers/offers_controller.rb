@@ -3,6 +3,19 @@ class OffersController < ApplicationController
 
   def index
     @offers = policy_scope(Offer)
+    @markers = Offer.where.not(latitude: nil, longitude: nil).map do |offer|
+      {
+        lat: offer.latitude,
+        lng: offer.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { offer: offer })
+      }
+    end
+    # @markers = @offers.geocoded.map do |offer|
+    #   {
+    #     lat: offer.latitude,
+    #     lng: offer.longitude
+    #   }
+    # end
   end
 
   def new
