@@ -8,5 +8,7 @@
       <% end %>
     </ul>
     <br>
-    <%= link_to "Créer une invitation", new_offer_path(@offer), class:"btn btn-secondary" %>
+    <% if policy(Offer).create? %>
+      <%= link_to "Créer une invitation", new_offer_path(@offer), class:"btn btn-secondary" %>
+    <% end %>
   </div>

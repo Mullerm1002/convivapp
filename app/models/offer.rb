@@ -1,4 +1,4 @@
 class Offer < ApplicationRecord
-  belongs_to :user, optional: true
-  has_one :reservation
+  belongs_to :user
+  has_one :reservation, dependent: :destroy
 end

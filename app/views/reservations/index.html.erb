@@ -1,6 +1,12 @@
 <h1>Mes reservations de repas</h1>
-<ul>
+
   <% @reservations.each do |reservation| %>
-    <li><%= link_to reservation.offer.title, offer_path(reservation.offer) %></li>
+    <tr>
+      <td><%= link_to reservation.offer.title, offer_path(reservation.offer) %></td>
+      <%= link_to "Supprimer cette réservation",
+                      reservation_path(reservation.id),
+                      method: :delete,
+                      data: { confirm: "Etes vous sûr?" }
+        %>
+    </tr>
   <% end %>
-</ul>
