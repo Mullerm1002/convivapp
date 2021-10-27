@@ -2,17 +2,23 @@ class OffersController < ApplicationController
   before_action :set_offer, only: [:show, :edit, :update, :destroy]
 
   def index
-    @offers = Offer.all.select { |offer| offer.reservation.nil? || "en attente de validation" }
+    @offers = policy_scope(Offer)
   end
 
   def new
     @offer = Offer.new
+    authorize @offer
   end
 
   def create
     @offer = Offer.new(offer_params)
-    @offer.save!
-    redirect_to offer_path(@offer)
+    @offer.user = current_user
+    authorize @offer
+    if @offer.save
+      redirect_to offer_path(@offer), notice: "L'invitation a été créée avec succès !"
+    else
+      render :new
+    end
   end
 
   def edit
@@ -22,9 +28,11 @@ class OffersController < ApplicationController
   end
 
   def update
-    @offer.update(offer_params)
-
-    redirect_to offer_path(@offer)
+    if @offer.update(offer_params)
+      redirect_to offer_path(@offer), notice: "L'invitation a été modifiée avec succès !"
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -35,11 +43,12 @@ class OffersController < ApplicationController
 
   private
 
-  def offer_params
-    params.require(:offer).permit(:title, :address, :date, :description, :image, :meal)
-  end
-
   def set_offer
     @offer = Offer.find(params[:id])
+    authorize @offer
+  end
+
+  def offer_params
+    params.require(:offer).permit(:title, :address, :date, :description, :image, :meal)
   end
 end
