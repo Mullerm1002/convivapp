@@ -5,15 +5,13 @@ class ReservationsController < ApplicationController
     # @reservations = Reservation.all
     @reservations = policy_scope(Reservation)
 
-    # ------- A FINIR JEUDI SOIR ------------
-    # @markers = reservation.offer.where.not(latitude: nil, longitude: nil).map do |offer|
-    #   {
-    #     lat: offer.latitude,
-    #     lng: offer.longitude,
-    #     info_window: render_to_string(partial: "info_window", locals: { offer: offer })
-    #   }
-    # end
-    # ------- A FINIR JEUDI SOIR -------------
+    @markers = Offer.where.not(latitude: nil, longitude: nil).map do |offer|
+      {
+        lat: offer.latitude,
+        lng: offer.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { offer: offer })
+      }
+    end
   end
 
   def new
