@@ -3,6 +3,7 @@
 <p><%= @offer.address %></p>
 <p><%= @offer.date %></p>
 <p><%= @offer.description %></p>
+<p><%= cl_image_tag @offer.photo.key.to_s, height: 300, width: 400, crop: :fill %></p>
 <p><%= @offer.photo %></p>
 <p><%= @offer.meal %></p>
 <br>
