@@ -10,12 +10,6 @@ class OffersController < ApplicationController
         info_window: render_to_string(partial: "info_window", locals: { offer: offer })
       }
     end
-    # @markers = @offers.geocoded.map do |offer|
-    #   {
-    #     lat: offer.latitude,
-    #     lng: offer.longitude
-    #   }
-    # end
   end
 
   def new
