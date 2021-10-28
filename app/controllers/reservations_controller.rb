@@ -2,7 +2,18 @@ class ReservationsController < ApplicationController
   before_action :set_offer, only: [:new, :create]
 
   def index
-    @reservations = Reservation.all
+    # @reservations = Reservation.all
+    @reservations = policy_scope(Reservation)
+
+    # ------- A FINIR JEUDI SOIR ------------
+    # @markers = reservation.offer.where.not(latitude: nil, longitude: nil).map do |offer|
+    #   {
+    #     lat: offer.latitude,
+    #     lng: offer.longitude,
+    #     info_window: render_to_string(partial: "info_window", locals: { offer: offer })
+    #   }
+    # end
+    # ------- A FINIR JEUDI SOIR -------------
   end
 
   def new
@@ -23,8 +34,10 @@ class ReservationsController < ApplicationController
   end
 
   def destroy
+    @reservation = Reservation.find(params[:id])
     @reservation.destroy
-    redirect_to reservations_path(@reservation)
+    authorize @reservation
+    redirect_to reservations_path()
   end
 
   private
@@ -35,5 +48,6 @@ class ReservationsController < ApplicationController
 
   def set_offer
     @offer = Offer.find(params[:offer_id])
+    authorize @offer
   end
 end

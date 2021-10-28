@@ -1,0 +1,32 @@
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 40px 50px;
+  background-color: #a1cce0;
+}
+
+.banner h1 {
+  margin: 0;
+  color: #303030;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.banner p {
+  font-size: 20px;
+  color: #303030;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.btn-flat {
+  background-color: #358eb7;
+  color: white;
+}
+
+
+
+// .linear-gradient-banner {
+//   background: linear-gradient(#F6CDB7, #F6CDB7);
+// }

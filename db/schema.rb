@@ -52,6 +52,10 @@ ActiveRecord::Schema.define(version: 2021_10_28_084744) do
     t.string "meal"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.float "latitude"
+    t.float "longitude"
+    t.index ["user_id"], name: "index_offers_on_user_id"
   end
 
   create_table "reservations", force: :cascade do |t|

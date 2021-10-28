@@ -1,6 +1,17 @@
 <h1>Mes reservations de repas</h1>
-<ul>
+
   <% @reservations.each do |reservation| %>
-    <li><%= link_to reservation.offer.title, offer_path(reservation.offer) %></li>
+    <tr>
+      <td><%= link_to reservation.offer.title, offer_path(reservation.offer) %></td>
+      <%= link_to "Supprimer cette réservation",
+                      reservation_path(reservation.id),
+                      method: :delete,
+                      data: { confirm: "Etes vous sûr?" }
+        %>
+    </tr>
   <% end %>
-</ul>
+  <div id="map"
+      style="width: 100%; height: 600px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
