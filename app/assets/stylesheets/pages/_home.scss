@@ -14,15 +14,6 @@
   font-weight: bold;
 }
 
-.box {
-  margin:auto;
-  margin-top:110px;
-  margin-right:45px;
-  float:right;
-  border: solid;
-  border-radius: 9px;
-}
-
 .content-left {
 text-align: left;
 border-radius: 9px;
@@ -71,3 +62,10 @@ height: 400px;
   background: linear-gradient(#A1CCE0, #EBF4F7, #A1CCE0);
 }
 
+.bg-light-cyan {
+  background-color: #a1cce0;
+}
+
+.reversed-img {
+  transform: scaleX(-1);
+}
