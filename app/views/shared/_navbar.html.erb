@@ -2,6 +2,12 @@
   <%= link_to "#", class: "navbar-brand" do %>
     <%= image_tag "convivapp_logo.png" %>
   <% end %>
+    <div class="navbar-nav">
+      <a class="nav-link active" aria-current="page" href="#">Home</a>
+      <a class="nav-link active" href="#">Features</a>
+      <a class="nav-link active" href="#">Pricing</a>
+    </div>
+
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -11,9 +17,6 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%= link_to "Home", "#", class: "nav-link" %>
-        </li>
         <li class="nav-item active">
           <%= link_to "Messages", "#", class: "nav-link" %>
         </li>
@@ -26,13 +29,11 @@
           </div>
         </li>
       <% else %>
-        <li class="nav-item btn-outline-warning">
-          <%= link_to "A propose de nous", new_user_session_path, class: "nav-link" %>
-        </li>
-        <li class="btn btn-outline-warning">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+        <li class="">
+          <%= link_to "Login", new_user_session_path, class: "nav-link btn btn-outline-warning py-2 px-4" %>
         </li>
       <% end %>
     </ul>
   </div>
 </div>
+
