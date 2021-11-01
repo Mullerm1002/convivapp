@@ -1,13 +1,11 @@
-<div class="d-flex justify-content-center bg-light-cyan mb-2 p-5">
-  <div class="col-5 p-5">
+<div class="banner-home d-flex justify-content-center bg-light-cyan mb-2 align-items-center">
+  <div class="col-5">
     <span class="display-4 font-weight-bold d-inline-block mt-5">
       Conviv'App!
     </span>
 
     <p class="my-4">
-      Participer à la lutte contre la solitude des personnes âgées
-      en mettant en relation des étudiants et des seniors pour qu'ils 
-      partagent un moment convivial autour d'un repas sain et fait maison
+      Conviv’App met en relation étudiants et personnes âgés pour qu’ils partagent un repas. 
     </p>
 
     <a class="btn btn-primary rounded mb-5" href="#">
@@ -17,44 +15,99 @@
 
   <div class="col-3 d-flex">
     <div class="col">
-      <%= image_tag('student.png') %>
+      <%= image_tag('student.png', class: 'img-small-width') %>
     </div>
     <div class="col">
-      <%= image_tag('senior.png', class: 'reversed-img') %>
+      <%= image_tag('senior.png', class: 'reversed-img img-small-width') %>
     </div>
   </div>
 </div>
 
-<div class="container linear-gradient">
-  <div class="title">
-    <h1>Un projet qui nous tient a coeur</h1>
-  </div>
 
-  <div class="row">
-    <div class="content-left">
-      <p class="catchphrase-left">
-        Convivialité
-      </p>
 
-      <p class="text-left">
+
+<div class="home-second-part mt-5">
+  <h1 class="text-centered">Un projet qui nous tient a coeur</h1>
+    <div class="text-left-pic-right mt-5">
+      <div class="item">
+        <h2>Convivialité</h2>
+        <p>
         Cette proposition permet aux seniors isolés ou cherchant du contact de pouvoir discuter autours d’un
         déjeuner/dîner. Cette solution intergénérationnelle donne la possibilité d’échanger, de favoriser 
         les liens sociaux tout en partageant ses expériences mutuelles.
-      </p>
+        </p>
+      </div>
+      <div class="item">
+        <%= image_tag "https://images.unsplash.com/photo-1587556930799-8dca6fad6d41?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2940&q=80"%>
+      </div>
     </div>
-  </div>
-
-  <div class="row">
-    <div class="content-right">
-      <p class="catchphrase-left">
-        Un bon repas
-      </p>
-
-      <p class="text-left">
+    <br>
+    <br>
+    <div class="text-right-pic-left">
+      <div class="item">
+        <%= image_tag "https://images.unsplash.com/photo-1494859802809-d069c3b71a8a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80"%>
+      </div>
+      <div class="item">
+        <h2>Un bon repas</h2>
+        <p>
         En plus du partage d’un moment chaleureux et sympathique, cette solution est économique et saine. 
         Elle permet aux étudiants d’économiser sur leur budget repas et de goûter à une cuisine plus élaborée
         et équilibrée. Manger des repas cuisinés tout en économisant et en apprenant de nouvelles recettes.
-      </p>
+        </p>
+      </div>
     </div>
   </div>
 </div>
+
+
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright id=apropos">
+    This footer is made with <i class="fas fa-heart"></i> at Le Wagon
+  </div>
+</div>
+
+
+
+    <%# <div class="row">
+      <div class="content-right">
+        <p class="catchphrase-left">
+          Un bon repas
+        </p>
+
+        <p class="text-left">
+          En plus du partage d’un moment chaleureux et sympathique, cette solution est économique et saine. 
+          Elle permet aux étudiants d’économiser sur leur budget repas et de goûter à une cuisine plus élaborée
+          et équilibrée. Manger des repas cuisinés tout en économisant et en apprenant de nouvelles recettes.
+        </p>
+      </div>
+    </div>
+  </div> %>
+
+
+
+<%# <div class="container">
+  <div class="card"></div>
+    <div class="title">
+      <h1>Un projet qui nous tient a coeur</h1>
+    </div>
+
+    <div class="row">
+      <div class="content-left">
+        <p class="catchphrase-left">
+          Convivialité
+        </p>
+
+        <p class="text-left">
+          Cette proposition permet aux seniors isolés ou cherchant du contact de pouvoir discuter autours d’un
+          déjeuner/dîner. Cette solution intergénérationnelle donne la possibilité d’échanger, de favoriser 
+          les liens sociaux tout en partageant ses expériences mutuelles.
+        </p>
+      </div>
+    </div> %>
