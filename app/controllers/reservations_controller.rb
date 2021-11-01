@@ -3,8 +3,7 @@ class ReservationsController < ApplicationController
 
   def index
     # @reservations = Reservation.all
-    start_date = params.fetch(:date, Date.today).to_date
-
+    # start_date = params.fetch(:date, Date.today).to_date
 
     # Offre créée par le User senior
     @my_offers = Offer.where(user: current_user)
@@ -25,7 +24,6 @@ class ReservationsController < ApplicationController
     @validated_reservations = policy_scope(Reservation).where(status: "accepted")
     # les reservations validees par le User senior
     @my_validated_reservations = Reservation.where(offer: @my_offers).where(status: "accepted")
-
   end
 
   def new
