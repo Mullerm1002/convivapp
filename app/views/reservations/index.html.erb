@@ -1,17 +1,142 @@
-<h1>Mes reservations de repas</h1>
-
-  <% @reservations.each do |reservation| %>
-    <tr>
-      <td><%= link_to reservation.offer.title, offer_path(reservation.offer) %></td>
-      <%= link_to "Supprimer cette réservation",
-                      reservation_path(reservation.id),
-                      method: :delete,
-                      data: { confirm: "Etes vous sûr?" }
-        %>
-    </tr>
-  <% end %>
-  <div id="map"
-      style="width: 100%; height: 600px;"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+<br>
+<br>
+<br>
+<br>
+<%# Barre de la dashboard %>
+<div class="container-resa">
+  <h1>Mon tableau de bord</h1>
+  <nav>
+    <div class="button-status-parent nav" id="nav-tab" role="tablist">
+      <%# Buton Mes offres uniquement pour le User senior %>
+      <% if current_user.role == "senior" %>
+        <button class="button-status nav-link active" id="nav-offers-tab" data-bs-toggle="tab" data-bs-target="#nav-offers" type="button" role="tab" aria-controls="nav-offers" aria-selected="<%= current_user.role == "senior" %>">Mes offres en ligne</button>
+      <%end %>
+      <%# Bouton Reservations refusées %>
+      <button class="button-status nav-link" id="nav-denied-reservation-tab" data-bs-toggle="tab" data-bs-target="#nav-denied-reservation" type="button" role="tab" aria-controls="nav-denied-reservation" aria-selected="false">Mes reservations refusées</button>
+     <%# Buton Reservations en attente de validation %>
+      <button class="button-status nav-link <%= 'active' if current_user.role == "junior" %>" id="nav-reservation-booking-tab" data-bs-toggle="tab" data-bs-target="#nav-reservation-booking" type="button" role="tab" aria-controls="nav-reservation-booking" aria-selected="<%= current_user.role == "junior"%>">Mes reservations en attente</button>
+      <%# Buton Reservations validées %>
+      <button class="button-status nav-link" id="nav-validated-reservation-tab" data-bs-toggle="tab" data-bs-target="#nav-validated-reservation" type="button" role="tab" aria-controls="nav-validated-reservation" aria-selected="false">Mes invitations validées</button>
+      <%# Buton Reservations terminées %>
+      <button class="button-status nav-link" id="nav-completed-reservation-tab" data-bs-toggle="tab" data-bs-target="#nav-completed-reservation" type="button" role="tab" aria-controls="nav-completed-reservation" aria-selected="false">Mes repas terminés</button>
+    </div>
+  </nav>
+  <div class="tab-content" id="nav-tabContent">
+    <%# Affichage des offres du User senior %>
+    <% if current_user.role == "senior" %>
+      <div class="tab-pane fade show active" id="nav-offers" role="tabpanel" aria-labelledby="nav-offers-tab">
+        <% @my_offers.each do |offer| %>
+          <div class="card-offer">
+            <%= offer.title %>
+            <%= offer.date %>
+            <%#= offer.description %>
+          </div>
+        <% end  %> 
+      </div>
+    <% end %>
+    <%# Affichage des reservations refusées pour le junior en 1er et pour le senior en 2nd %>
+    <div class="tab-pane fade" id="nav-denied-reservation" role="tabpanel" aria-labelledby="nav-denied-reservation-tab">
+      <% if current_user.role == "junior" %>
+        <% @denied_reservations.each do |reservation| %>
+          <div class="card-offer">
+            <%= reservation.offer.title %>
+            <%= reservation.offer.date %>
+            <%= reservation.offer.description %>
+          </div>
+        <% end  %> 
+      <% else %>
+        <% @my_denied_reservations.each do |reservation| %>
+          <div class="card-offer">
+            <%= reservation.offer.title %>
+            <%= reservation.offer.date %>
+            <%= reservation.offer.description %>
+          </div>
+        <% end  %> 
+      <% end %>
+    </div>
+    <%# Affichage des reservations en attente de validation pour le junior en 1er et pour le senior en 2nd %>
+    <div class="tab-pane fade <%= 'show active' if current_user.role == "junior" %>" id="nav-reservation-booking" role="tabpanel" aria-labelledby="nav-reservation-booking-tab">
+      <% if current_user.role == "junior" %>
+        <% @reservations_booking.each do |reservation| %>
+          <div class="card-offer">
+            <%= reservation.offer.title %>
+            <%= reservation.offer.date %>
+            <%= reservation.offer.description %>
+          </div>
+        <% end  %> 
+      <% else %>
+        <% @my_reservations.each do |reservation| %>
+          <div class="card-offer" id="validate-offer">
+            <div id="infos-offer-validate">
+              <div><%= reservation.offer.title %></div>
+              <div><%= reservation.offer.date %></div>
+              <div><%= reservation.offer.description %></div>
+            </div>
+            <div>
+              <button type="button" class="btn btn btn-success" >Accepter</button>
+              <button type="button" class="btn btn btn-danger" >Refuser</button>
+            </div>
+          </div>
+        <% end  %> 
+      <% end %>
+    </div>
+    <%# Affichage des reservations validées pour le junior en 1er et pour le senior en 2nd %>
+    <div class="tab-pane fade" id="nav-validated-reservation" role="tabpanel" aria-labelledby="nav-validated-reservation-tab">
+      <% if current_user.role == "junior" %>
+        <% @validated_reservations.each do |reservation| %>
+          <% if reservation.offer.date > Date.today  %>
+            <div class="card-offer">
+              <%= reservation.offer.title %>
+              <%= reservation.offer.date %>
+              <%= reservation.offer.description %>
+            </div>
+          <% end %>
+        <% end  %> 
+      <% else %>
+        <% @my_validated_reservations.each do |reservation| %>
+          <% if reservation.offer.date > Date.today  %>
+            <div class="card-offer">
+              <%= reservation.offer.title %>
+              <%= reservation.offer.date %>
+              <%= reservation.offer.description %>
+            </div>
+          <% end %>
+        <% end  %> 
+      <% end %>
+    </div>
+    <%# Affichage des reservations terminées pour le junior en 1er et pour le senior en 2nd %>
+    <div class="tab-pane fade" id="nav-completed-reservation" role="tabpanel" aria-labelledby="nav-completed-reservation-tab">
+      <% if current_user.role == "junior" %>
+        <% @validated_reservations.each do |reservation| %>
+          <% if reservation.offer.date < Date.today  %>
+            <div class="card-offer">
+              <%= reservation.offer.title %>
+              <%= reservation.offer.date %>
+              <%= reservation.offer.description %>
+            </div>
+          <% end  %>
+        <% end %>
+      <% else %>
+        <% @my_validated_reservations.each do |reservation| %>
+          <% if reservation.offer.date < Date.today  %>
+            <div class="card-offer">
+              <%= reservation.offer.title %>
+              <%= reservation.offer.date %>
+              <%= reservation.offer.description %>
+            </div>
+          <% end  %>
+        <% end  %> 
+      <% end  %>
+    </div>
   </div>
+  <div>
+    <%= month_calendar events: @validated_reservations do |date, reservations| %>
+      <%= date %>
+      <% reservations.each do |reservations| %>
+        <div class="reservations">
+          <p><%= reservations.offer.title %></p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

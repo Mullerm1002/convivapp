@@ -3,15 +3,29 @@ class ReservationsController < ApplicationController
 
   def index
     # @reservations = Reservation.all
-    @reservations = policy_scope(Reservation)
+    start_date = params.fetch(:date, Date.today).to_date
 
-    @markers = Offer.where.not(latitude: nil, longitude: nil).map do |offer|
-      {
-        lat: offer.latitude,
-        lng: offer.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { offer: offer })
-      }
-    end
+
+    # Offre créée par le User senior
+    @my_offers = Offer.where(user: current_user)
+
+    # reservation faite par le User junior avec le statut en refuse
+    @denied_reservations = policy_scope(Reservation).where(status: "denied")
+
+    # les reservations refusees par le User senior
+    @my_denied_reservations = Reservation.where(offer: @my_offers).where(status: "denied")
+
+    # reservation faite par le User junior avec le statut en attente
+    @reservations_booking = policy_scope(Reservation).where(status: "pending")
+
+    # les reservations en attente de validation par le User senior
+    @my_reservations = Reservation.where(offer: @my_offers).where(status: "pending")
+
+    # reservation faite par le User junior avec le statut "valide"
+    @validated_reservations = policy_scope(Reservation).where(status: "accepted")
+    # les reservations validees par le User senior
+    @my_validated_reservations = Reservation.where(offer: @my_offers).where(status: "accepted")
+
   end
 
   def new
@@ -23,7 +37,7 @@ class ReservationsController < ApplicationController
     @reservation.offer = @offer
     @reservation.user = current_user
     if @reservation.save
-      @reservation.status = "En attente de validation"
+      # @reservation.status = "En attente de validation"
       @reservation.save
       redirect_to reservations_path()
     else
