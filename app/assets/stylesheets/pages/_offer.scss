@@ -1,0 +1,100 @@
+.main-container {
+  display: flex;
+  color:#FFD400
+}
+
+.card-photo > img {
+  height: 150px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-user {
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+}
+.container-card {
+  flex-grow: 0.75;
+  display: flex;
+  height: 100%;
+} 
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 5px;
+}
+
+.card-date {
+  position: relative;
+  top: -32px;
+  left: 163px;
+  font-family: 'salsa';
+}
+
+.card-name {
+  font-family: 'Salsa';
+  font-weight: 600;
+  font-size: 24px;
+  color: #1A4C81;
+  margin-left: -15px;
+}
+
+.card-description {
+  font-family: 'Salsa';
+  font-size: 16px;
+  color: black;
+}
+
+.card-adress {
+font-weight: 600;
+font-size: 14px;
+color: black;
+font-family: 'salsa';
+}
+.btn-flat {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #FFD400;
+  transition: background 0.3s ease;
+}
+
+.btn-flat:hover {
+  background: #dbb701;
+  color: white;
+}
+
+img {
+  border-radius: 5px;
+}
+
+.title-offer {
+  margin-top: 42px;
+  color: black;
+  font-family: 'salsa';
+  font-size: 42px;
+  margin-left: 16px;
+  margin-bottom: 12px;
+}
+
+.highlighted {
+  padding: 2px 15px 4px;
+  font-style: normal;
+  border-radius: 3px;
+  background-color: #002060;
+  color:#FFD400;
+}
+
+.card-meal {
+  font-weight: 600;
+  font-size: 14px;
+  color: black;
+  font-family: 'salsa';
+}
+
+.body {
+  background-color: #e9f7f9;
+}

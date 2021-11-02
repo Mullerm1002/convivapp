@@ -3,7 +3,11 @@
 <p><%= @offer.address %></p>
 <p><%= @offer.date %></p>
 <p><%= @offer.description %></p>
-<p><%= cl_image_tag @offer.photo.key, height: 300, width: 400, crop: :fill %></p>
+
+<% if @offer.photo.attached? %> 
+  <p><%= cl_image_tag @offer.photo.key, height: 300, width: 400, crop: :fill %></p>
+<% end  %>
+
 <p><%= @offer.meal %></p>
 <br>
 <%= link_to "Retour aux propositions", offers_path(), class: "btn btn-primary" %>
