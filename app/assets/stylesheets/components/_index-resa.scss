@@ -1,0 +1,22 @@
+.button-status-parent {
+  display: flex;
+  justify-content: space-evenly;
+}
+.button-status {
+  height: 75px;
+  border-radius: 10px;
+  background-color: #0093E9;
+  background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+}
+.card-offer {
+  background-color: #E9F7F9;
+  // height: 50px;
+}
+#infos-offer-validate{
+  display: flex;
+  flex-direction: column;
+}
+#validate-offer {
+  display: flex;
+  justify-content: space-around;
+}
