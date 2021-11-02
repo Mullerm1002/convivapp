@@ -1,7 +1,7 @@
 .container {
   font-size: 46px;
   font-family: 'Salsa';
-  padding-top: 2%;
+  padding-top: 140px;
   max-width: -webkit-fill-available;
 }
 
@@ -93,4 +93,8 @@ height: 400px;
 .footer {
   display: flex;
   justify-content: center;
+}
+
+.padding-top-140 {
+  padding-top: 140px;
 }
