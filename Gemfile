@@ -40,6 +40,7 @@ gem 'geocoder'
 
 gem "simple_calendar", "~> 2.4"
 
+gem 'gemoji'
 
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
