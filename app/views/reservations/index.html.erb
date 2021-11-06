@@ -70,8 +70,14 @@
                 <div><%= reservation.offer.description %></div>
               </div>
               <div>
-                <button type="button" class="btn btn btn-success" >Accepter</button>
-                <button type="button" class="btn btn btn-danger" >Refuser</button>
+                  <%= simple_form_for(reservation) do |f| %>
+                    <%= f.hidden_field :status, value: 'accepted'%>
+                    <%= f.button :submit, 'Accepter', id: 'accept' %>
+                  <% end %>
+                  <%= simple_form_for(reservation) do |f| %>
+                    <%= f.hidden_field :status, value: 'denied'%>
+                    <%= f.button :submit, 'Refuser', id: 'denied' %>
+                <% end %>
               </div>
             </div>
           <% end  %> 
@@ -126,7 +132,7 @@
         <% end  %>
       </div>
     </div>
-    <div>
+    <div class="calendar">
       <%= month_calendar events: @validated_reservations do |date, reservations| %>
         <%= date %>
         <% reservations.each do |reservations| %>
@@ -138,3 +144,50 @@
     </div>
   </div>
 </div>
+
+
+<script>
+  //const buttonAccepted = document.getElementById('accept');
+  const buttonsAccepted = document.querySelectorAll('#accept');
+  const buttonDenied = document.getElementById('denied');
+  const buttonsDenied = document.querySelectorAll('#denied');
+  buttonsAccepted.forEach((buttonAccepted) => {
+    buttonAccepted.addEventListener('click', (event) => {
+    buttonDenied.remove();
+    if (buttonAccepted) {
+      buttonAccepted.className = "btn btn-success";
+      setTimeout(() => {
+        document.querySelector('#validate-offer').remove();
+      }, 2000)
+    }
+    })
+  })
+
+  buttonsDenied.forEach((buttonDenied) => {
+    buttonDenied.addEventListener('click', (event) => {
+    buttonAccepted.remove();
+    if (buttonDenied) {
+      buttonDenied.className = "btn btn-danger"
+       setTimeout(() => {
+        document.querySelector('#validate-offer').remove();
+      }, 2000)
+    }
+    })
+  })
+
+  <%# buttonAccepted.addEventListener('click', (event) => {
+    buttonDenied.remove();
+    if (buttonAccepted) {
+      buttonAccepted.value = 'Offre acceptée !'
+      buttonAccepted.className = "btn btn-success"
+    }
+  }) %>
+
+  <%# buttonDenied.addEventListener('click', (event) => {
+    buttonAccepted.remove();
+    if (buttonDenied) {
+      buttonDenied.value = 'Offre refusée !'
+      buttonAccepted.className = "btn btn-danger"
+    }
+  }) %>
+</script>
