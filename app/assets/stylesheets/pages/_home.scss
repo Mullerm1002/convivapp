@@ -1,100 +1,56 @@
-.container {
-  font-size: 46px;
-  font-family: 'Salsa';
-  padding-top: 140px;
-  max-width: -webkit-fill-available;
+.banner {
+  height: 70vh;
+  background-color: #98B8FE;
 }
 
-
-
-.banner-home {
- width: 100%;
- margin-left: auto;
- margin-right: auto;
+.container-left {
+  width: 50%;
+  h1 {
+    margin-top: 12%;
+    margin-left: 12%;
+    line-height: 150%;
+    font-family: 'Zen Antique', serif;
+    color: white;
+  }
+  span {
+    color: #3E49E3;
+  }
+  
 }
 
-.img-small-width {
-  width: 120px;
-  height: 200px;
-}
-
-
-.title {
-  text-align: center;
-  margin: 0;
-  color: #303030;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 32px;
-  font-weight: bold;
-}
-
-.content-left {
-text-align: left;
-border-radius: 9px;
-height: 400px;
-}
-
-.content-right {
-  text-align: right;
-  border-radius: 9px;
-  height: 400px;
-  color: black;
-}
-
-.row {
-  display: inline;
-  flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
-}
-
-.catchphrase-left {
-  font-size: 30px;
-  margin-left: 30px;
-  margin-top: 20px;
-}
-
-.catchphrase-right {
-  font-size: 30px;
-  margin-right: 30px;
-  margin-top: 20px;
-}
-
-.text-left {
-  font-size: 20px;
-  width: 650px;
-  margin-left: 30px;
-}
-
-.text-right {
-  font-size: 20px;
-  width: 650px;
-  margin-right: 30px;
-}
-
-.linear-gradient {
-  background: linear-gradient(#C6D7E1, #C6D7E1);
-}
-
-.bg-light-cyan {
-  background-color: #E9F7F9;
-  padding: 180px;
-}
-
-.reversed-img {
-  transform: scaleX(-1);
-}
-
-.btn-primary {
-  background-color: #0FA3B1;
-  border: #0FA3B1;
-}
-
-.footer {
+.cta-orange {
   display: flex;
-  justify-content: center;
+  margin-top: 2%;
+  margin-left: 12%;
+  text-decoration: none;
+  background-color: #ED746D;
+  transition: all 1s ease;
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  opacity: 0.8;
+  box-shadow: none !important;
+  border: none;
 }
 
-.padding-top-140 {
-  padding-top: 140px;
+.cta-orange:hover {
+  text-decoration: none;
+  color: #fff;
+}
+
+.container-right {
+  width: 50%;
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+}
+
+.cta {
+  display: flex;
+  align-items: baseline;
+  width: 400px;
+  place-content: space-around;
+  margin-left: 5%;
 }
