@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   resources :offers do
     resources :reservations, only: [:new, :create]
   end
-  resources :apropos
-  resources :reservations, only: [:destroy, :index]
+  
+  resources :reservations
+  #, only: [:destroy, :index]
   resources :chatrooms, only: :show do
     resources :messages, only: :create
   end

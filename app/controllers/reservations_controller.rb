@@ -1,5 +1,6 @@
 class ReservationsController < ApplicationController
   before_action :set_offer, only: [:new, :create]
+  skip_after_action :verify_authorized
 
   def index
     # @reservations = Reservation.all
@@ -50,6 +51,28 @@ class ReservationsController < ApplicationController
     @reservation.destroy
     authorize @reservation
     redirect_to reservations_path()
+  end
+
+  def edit
+  end
+
+  def update
+    @reservation = Reservation.find(params[:id])
+    @reservation.status = params[:reservation][:status]
+    @reservation.save
+    authorize @reservation
+    user_senior = @reservation.offer.user
+    user_junior = @reservation.user
+    if @reservation.accepted?
+      @chatroom = Chatroom.find_or_create_by(
+        name: "#{user_senior.full_name} <=> #{user_junior.full_name}", 
+        user_senior: user_senior, 
+        user_junior: user_junior
+      )
+      redirect_to chatroom_path(@chatroom) and return
+    end
+    # TODO : redirect to a proper view
+    redirect_to root_path
   end
 
   private
