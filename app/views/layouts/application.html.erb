@@ -19,7 +19,14 @@
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-
-    <%= yield %>
+    <div class="avoid-nav-overflow">
+    </div>
+      <%= yield %>
   </body>
 </html>
+
+<style>
+  .avoid-nav-overflow {
+    height: 70px;
+  }
+</style>
