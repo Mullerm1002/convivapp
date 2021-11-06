@@ -30,8 +30,10 @@
             </div>
           </li>
         <% else %>
-          <li class="active">
-            <%= link_to "Login", new_user_session_path, class: "nav-link btn btn-outline-warning py-2 px-4" %>
+          <li class="button-login active">
+            <%= link_to new_user_session_path, class: "nav-link btn btn-outline-warning py-2 px-4" do %>
+              <span>Login</span>
+            <% end %>
           </li>
         <% end %>
       </ul>
