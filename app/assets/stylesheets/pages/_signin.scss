@@ -1,4 +1,8 @@
-  
+ 
+ h2 {
+   text-align: center;
+ }
+
 .container-form {
   border-radius: 8px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -7,10 +11,35 @@
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  width: 24em;
+  width: 834px;
   margin-top: 90px;
+  display: flex;
+  flex-direction: column;
 }
+
+.image-form {
+  display: flex;
+  justify-content: center;
+  
+}
+
+.image-logo {
+  opacity: 0.5;
+  transition: all 1s ease;
+}
+
+.image-logo:hover {
+  opacity: 1;
+}
+// .image-one .image-two {
+//   max-width: 200px;
+//   max-height: 200px;
+// }
 
 .p-log {
   padding-top: 12px;
+}
+
+#center {
+  text-align: center;
 }
