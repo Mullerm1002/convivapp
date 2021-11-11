@@ -6,4 +6,9 @@ class ChatroomsController < ApplicationController
     @chatrooms = current_user.chatrooms
     authorize @chatroom
   end
+
+  def index
+    @chatrooms = policy_scope(Chatroom).all
+    authorize @chatrooms
+  end
 end

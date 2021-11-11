@@ -10,4 +10,12 @@ class Reservation < ApplicationRecord
   def start_time
     offer.date
   end
+
+  def status
+    if super == 'accepted' && offer.date < Date.today
+      'completed'
+    else
+      super
+    end
+  end
 end

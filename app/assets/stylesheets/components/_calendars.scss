@@ -1,0 +1,85 @@
+.calendar {
+  &.accepted {
+    .reservation {
+      &.pending {
+        display: none;
+      }
+
+      &.denied {
+        display: none;
+      }
+
+      &.completed {
+        display: none;
+      }
+    }
+  }
+
+  &.pending {
+    .reservation {
+      &.accepted {
+        display: none;
+      }
+
+      &.denied {
+        display: none;
+      }
+
+      &.completed {
+        display: none;
+      }
+    }
+  }
+
+  &.denied {
+    .reservation {
+      &.accepted {
+        display: none;
+      }
+
+      &.pending {
+        display: none;
+      }
+
+      &.completed {
+        display: none;
+      }
+    }
+  }
+
+  &.completed {
+    .reservation {
+      &.accepted {
+        display: none;
+      }
+
+      &.pending {
+        display: none;
+      }
+
+      &.denied {
+        display: none;
+      }
+    }
+  }
+
+  .reservation {
+    color: #060305;
+
+    &.accepted {
+      background: #E5EBF9;
+    }
+
+    &.pending {
+      background: #FEF5C9;
+    }
+
+    &.denied {
+      background: #F8E0DF;
+    }
+
+    &.completed {
+      background: #b7e8c3;
+    }
+  }
+}
