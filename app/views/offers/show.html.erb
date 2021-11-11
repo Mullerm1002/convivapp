@@ -1,29 +1,39 @@
-<h1>Proposition de diner</h1>
-<h2><%= @offer.title %></h2>
-<p><%= @offer.address %></p>
-<p><%= @offer.date %></p>
-<p><%= @offer.description %></p>
-
-<% if @offer.photo.attached? %> 
-  <p><%= cl_image_tag @offer.photo.key, height: 300, width: 400, crop: :fill %></p>
-<% end  %>
-
-<p><%= @offer.meal %></p>
-<br>
-<%= link_to "Retour aux propositions", offers_path(), class: "btn btn-primary" %>
-<% if policy(@offer).edit? %>
-  <%= link_to "Modifier cette proposition", edit_offer_path(@offer), class: "btn btn-warning" %>
-<% end %>
-<% if @offer.reservation.nil?%>
-  <%= link_to "Réserver L'invitation", new_offer_reservation_path(@offer), class: "btn btn-primary" %>
-<% else %>
-  <button type="button" class="btn btn btn-primary" disabled>Offre en cours de réservation</button>
-<% end %>
-
-<% if policy(@offer).destroy? %>
-  <%= link_to "Supprimer #{@offer.title}",
-                offer_path(@offer),
-                method: :delete,
-                data: { confirm: "Are you sure?" },
-                class: "btn btn-danger" %>
-<% end %>
+<div class="body">
+  <div class="container">
+    <%= link_to "Retour aux propositions", offers_path(), class: "btn" %>
+      <div class="card">
+        <div class="card-user-show">
+          <div class="card-user-img">
+            <%# @user.avatar %>
+          </div>
+          <div class="card-user-name">
+            <h2><%= @offer.user.first_name %></h2>
+          </div>
+          <div class="card-user-description">
+            <p><%= @offer.user.description %></p>
+          </div>
+        </div> 
+        <div class="card-user-right">
+            <% if @offer.photo.attached? %> 
+              <%= cl_image_tag @offer.photo.key, class:"card-imagee"%>
+            <% end  %>
+          <div class="card-user-body">
+            <div class="card-user-title">
+              <h2><%= @offer.title %></h2>
+            </div>
+            <div class="card-user-date">
+              <p><%= @offer.date %></p>
+            </div>
+            <div class="card-user-adress">
+              <p><%= @offer.address %></p>
+            </div>
+            <div class="card-user-description">
+              <p><%= @offer.description %></p>
+            </div>
+            <div class="btn-reservation">
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>  
+</div>

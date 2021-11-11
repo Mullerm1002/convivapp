@@ -1,0 +1,43 @@
+.body {
+  background-color: #97B8FD;
+}
+
+.btn {
+  color: white;
+  margin-top: 30px;
+}
+
+.card {
+  height: 1040px;
+  flex-direction: row;
+  justify-content: space-between;
+  border-radius: 0%;
+  border: none;
+}
+.card-user-show {
+  color: blue;
+  background-color: white;
+  height: 800px;
+  display: flex;
+  width: 555px;
+  padding: 1.25rem;
+  border-radius: 0%;
+}
+
+.card-user-right {
+  display: flex;
+  flex-direction: column;
+  .card-imagee {
+    height: 384px;
+    width: 669px;
+    object-fit: cover;
+    border-radius: 0%;
+  }
+}
+
+.card-user-body {
+  display: flex;
+  flex-direction: column;
+  background-color: #ED746D;
+  color: white;
+}
