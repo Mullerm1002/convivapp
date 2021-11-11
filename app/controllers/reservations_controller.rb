@@ -27,6 +27,11 @@ class ReservationsController < ApplicationController
     # les reservations validees par le User senior
     @my_validated_reservations = Reservation.where(offer: @my_offers).where(status: "accepted")
 
+    @reservations =
+      Reservation
+      .joins(:offer)
+      .where(user_id: current_user.id)
+      .or(Reservation.joins(:offer).where(offer: { user_id: current_user.id }))
   end
 
   def new

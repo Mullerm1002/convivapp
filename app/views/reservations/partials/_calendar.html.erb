@@ -1,0 +1,10 @@
+<div id="calendar" class="calendar all">
+  <%= month_calendar events: @reservations do |date, reservations| %>
+    <%= date %>
+    <% reservations.each do |reservation| %>
+      <div class="reservation <%= reservation.status %>">
+        <p><%= reservation.offer.title %></p>
+      </div>
+    <% end %>
+  <% end %>
+</div>

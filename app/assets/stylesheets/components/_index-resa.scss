@@ -79,11 +79,27 @@ img {
 
 }
 
+.simple-calendar {
+  margin-top: 20px;
+}
+
 #infos-offer-validate{
   display: flex;
   flex-direction: column;
 }
+
 #validate-offer {
   display: flex;
   justify-content: space-around;
+}
+
+#dashboard-header {
+  button {
+    color: #ED746D;
+  }
+
+  button.active {
+    background-color: #ED746D;
+    color: #fff;
+  }
 }

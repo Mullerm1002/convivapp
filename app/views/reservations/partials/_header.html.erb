@@ -1,0 +1,24 @@
+<div id="dashboard-header" class="d-flex align-items-center justify-content-start">
+  <div class="mr-2">
+    <button id="all" class="btn px-3 py-2 active">
+      Mes demandes
+    </button>
+  </div>
+  <div class="mr-2">
+    <button id="accepted" class="btn px-3 py-2">
+      Déjeuners à venir
+    </button>
+  </div>
+  <div class="mr-2">
+    <button id="completed" class="btn px-3 py-2">
+      Déjeuners passés
+    </button>
+  </div>
+  <% if current_user.role == 'senior' %>
+    <div class="mr-2">
+      <button id="senior-reservations" class="btn px-3 py-2">
+        Mes invitations en ligne
+      </button>
+    </div>
+  <% end %>
+</div>

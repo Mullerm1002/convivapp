@@ -1,223 +1,32 @@
 <div class="padding-top-140">
-  <div class="background-color-top">
-  </div>
-  <%# Barre de la dashboard %>
+  <div class="background-color-top"></div>
+
   <div class="container-resa">
     <div class= "profile-top">
       <div class="profile-infos col-lg-9">
         <div class="profile-avatar col-lg-3">
-          <%= if current_user.avatar.nil? 
-            image_tag "user.png"
-          else
-            current_user.avatar
-          end %>
+          <% if current_user.avatar.nil? %>
+            <%= image_tag "user.png" %>
+          <% else %>
+            <%= current_user.avatar %>
+          <% end %>
         </div>
 
         <div class="profile-description col-lg-8">
           <h3><%= current_user.first_name %></h3>
-          <p>Inscrit depuis <%= current_user.created_at %></p>
+          <p>Inscrit depuis <%= l(current_user.created_at, format: :medium) %></p>
         </div>      
       </div>
       <div class="profile-actions col-lg-3">
-        <%= link_to "Voir mes messages", edit_user_registration_path, class: "btn btn-custom" %>
-        <%= link_to "Editer mon profil", "#", class: "btn btn-custom" %>
+        <%= link_to "Voir mes messages", chatrooms_path, class: "btn btn-custom" %>
+        <%= link_to "Editer mon profil", edit_user_registration_path, class: "btn btn-custom" %>
       </div>
     </div>
 
     <div class="dashboard-content">
-      <div class="dashboard-btn">
-      <nav>
-        <div class="button-status-parent nav" id="nav-tab" role="tablist">
-          <%# Buton Mes offres uniquement pour le User senior %>
-          <% if current_user.role == "senior" %>
-            <button class="button-status nav-link active" id="nav-offers-tab" data-bs-toggle="tab" data-bs-target="#nav-offers" type="button" role="tab" aria-controls="nav-offers" aria-selected="<%= current_user.role == "senior" %>">Mes offres en ligne</button>
-          <%end %>
-          <%# Bouton Reservations refusées %>
-          <button class="button-status nav-link" id="nav-denied-reservation-tab" data-bs-toggle="tab" data-bs-target="#nav-denied-reservation" type="button" role="tab" aria-controls="nav-denied-reservation" aria-selected="false">Mes reservations refusées</button>
-          <%# Buton Reservations en attente de validation %>
-          <button class="button-status nav-link <%= 'active' if current_user.role == "junior" %>" id="nav-reservation-booking-tab" data-bs-toggle="tab" data-bs-target="#nav-reservation-booking" type="button" role="tab" aria-controls="nav-reservation-booking" aria-selected="<%= current_user.role == "junior"%>">Mes reservations en attente</button>
-          <%# Buton Reservations validées %>
-          <button class="button-status nav-link" id="nav-validated-reservation-tab" data-bs-toggle="tab" data-bs-target="#nav-validated-reservation" type="button" role="tab" aria-controls="nav-validated-reservation" aria-selected="false">Mes invitations validées</button>
-          <%# Buton Reservations terminées %>
-          <button class="button-status nav-link" id="nav-completed-reservation-tab" data-bs-toggle="tab" data-bs-target="#nav-completed-reservation" type="button" role="tab" aria-controls="nav-completed-reservation" aria-selected="false">Mes repas terminés</button>
-        </div>
-      </nav>
-      </div>
-
-      <div class="tab-content" id="nav-tabContent">
-        <%# Affichage des offres du User senior %>
-        <% if current_user.role == "senior" %>
-          <div class="tab-pane fade show active" id="nav-offers" role="tabpanel" aria-labelledby="nav-offers-tab">
-            <% @my_offers.each do |offer| %>
-              <div class="card-offer">
-                <%= offer.title %>
-                <%= offer.date %>
-                <%#= offer.description %>
-              </div>
-            <% end  %> 
-          </div>
-        <% end %>
-        
-        <%# Affichage des reservations refusées pour le junior en 1er et pour le senior en 2nd %>
-        <div class="tab-pane fade" id="nav-denied-reservation" role="tabpanel" aria-labelledby="nav-denied-reservation-tab">
-          <% if current_user.role == "junior" %>
-            <% @denied_reservations.each do |reservation| %>
-              <div class="card-offer">
-                <%= reservation.offer.title %>
-                <%= reservation.offer.date %>
-                <%= reservation.offer.description %>
-              </div>
-            <% end  %> 
-          <% else %>
-            <% @my_denied_reservations.each do |reservation| %>
-              <div class="card-offer">
-                <%= reservation.offer.title %>
-                <%= reservation.offer.date %>
-                <%= reservation.offer.description %>
-              </div>
-            <% end  %> 
-          <% end %>
-        </div>
-        <%# Affichage des reservations en attente de validation pour le junior en 1er et pour le senior en 2nd %>
-        <div class="tab-pane fade <%= 'show active' if current_user.role == "junior" %>" id="nav-reservation-booking" role="tabpanel" aria-labelledby="nav-reservation-booking-tab">
-          <% if current_user.role == "junior" %>
-            <% @reservations_booking.each do |reservation| %>
-              <div class="card-offer">
-                <%= reservation.offer.title %>
-                <%= reservation.offer.date %>
-                <%= reservation.offer.description %>
-              </div>
-            <% end  %> 
-          <% else %>
-            <% @my_reservations.each do |reservation| %>
-              <div class="card-offer" id="validate-offer">
-                <div id="infos-offer-validate">
-                  <div><%= reservation.offer.title %></div>
-                  <div><%= reservation.offer.date %></div>
-                  <div><%= reservation.offer.description %></div>
-                </div>
-                <div>
-                    <%= simple_form_for(reservation) do |f| %>
-                      <%= f.hidden_field :status, value: 'accepted'%>
-                      <%= f.button :submit, 'Accepter', id: 'accept' %>
-                    <% end %>
-                    <%= simple_form_for(reservation) do |f| %>
-                      <%= f.hidden_field :status, value: 'denied'%>
-                      <%= f.button :submit, 'Refuser', id: 'denied' %>
-                  <% end %>
-                </div>
-              </div>
-            <% end  %> 
-          <% end %>
-        </div>
-        <%# Affichage des reservations validées pour le junior en 1er et pour le senior en 2nd %>
-        <div class="tab-pane fade" id="nav-validated-reservation" role="tabpanel" aria-labelledby="nav-validated-reservation-tab">
-          <% if current_user.role == "junior" %>
-            <% @validated_reservations.each do |reservation| %>
-              <% if reservation.offer.date > Date.today  %>
-                <div class="card-offer">
-                  <%= reservation.offer.title %>
-                  <%= reservation.offer.date %>
-                  <%= reservation.offer.description %>
-                </div>
-              <% end %>
-            <% end  %> 
-          <% else %>
-            <% @my_validated_reservations.each do |reservation| %>
-              <% if reservation.offer.date > Date.today  %>
-                <div class="card-offer">
-                  <%= reservation.offer.title %>
-                  <%= reservation.offer.date %>
-                  <%= reservation.offer.description %>
-                </div>
-              <% end %>
-            <% end  %> 
-          <% end %>
-        </div>
-        <%# Affichage des reservations terminées pour le junior en 1er et pour le senior en 2nd %>
-        <div class="tab-pane fade" id="nav-completed-reservation" role="tabpanel" aria-labelledby="nav-completed-reservation-tab">
-          <% if current_user.role == "junior" %>
-            <% @validated_reservations.each do |reservation| %>
-              <% if reservation.offer.date < Date.today  %>
-                <div class="card-offer">
-                  <%= reservation.offer.title %>
-                  <%= reservation.offer.date %>
-                  <%= reservation.offer.description %>
-                </div>
-              <% end  %>
-            <% end %>
-          <% else %>
-            <% @my_validated_reservations.each do |reservation| %>
-              <% if reservation.offer.date < Date.today  %>
-                <div class="card-offer">
-                  <%= reservation.offer.title %>
-                  <%= reservation.offer.date %>
-                  <%= reservation.offer.description %>
-                </div>
-              <% end  %>
-            <% end  %> 
-          <% end  %>
-        </div>
-      </div>
-
-      <div class="calendar">
-        <%= month_calendar events: @validated_reservations do |date, reservations| %>
-          <%= date %>
-          <% reservations.each do |reservations| %>
-            <div class="reservations">
-              <p><%= reservations.offer.title %></p>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
+      <%= render('reservations/partials/header') %>
+      <%= render('reservations/partials/seniors/offers') if current_user.role == 'senior' %>
+      <%= render('reservations/partials/calendar') %>
     </div>
-
   </div>
 </div>
-
-
-<script>
-  //const buttonAccepted = document.getElementById('accept');
-  const buttonsAccepted = document.querySelectorAll('#accept');
-  const buttonDenied = document.getElementById('denied');
-  const buttonsDenied = document.querySelectorAll('#denied');
-  buttonsAccepted.forEach((buttonAccepted) => {
-    buttonAccepted.addEventListener('click', (event) => {
-    buttonDenied.remove();
-    if (buttonAccepted) {
-      buttonAccepted.className = "btn btn-success";
-      setTimeout(() => {
-        document.querySelector('#validate-offer').remove();
-      }, 2000)
-    }
-    })
-  })
-
-  buttonsDenied.forEach((buttonDenied) => {
-    buttonDenied.addEventListener('click', (event) => {
-    buttonAccepted.remove();
-    if (buttonDenied) {
-      buttonDenied.className = "btn btn-danger"
-       setTimeout(() => {
-        document.querySelector('#validate-offer').remove();
-      }, 2000)
-    }
-    })
-  })
-
-  <%# buttonAccepted.addEventListener('click', (event) => {
-    buttonDenied.remove();
-    if (buttonAccepted) {
-      buttonAccepted.value = 'Offre acceptée !'
-      buttonAccepted.className = "btn btn-success"
-    }
-  }) %>
-
-  <%# buttonDenied.addEventListener('click', (event) => {
-    buttonAccepted.remove();
-    if (buttonDenied) {
-      buttonDenied.value = 'Offre refusée !'
-      buttonAccepted.className = "btn btn-danger"
-    }
-  }) %>
-</script>
