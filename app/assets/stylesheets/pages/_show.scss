@@ -1,43 +1,51 @@
 .body {
   background-color: #97B8FD;
+  height: 100vh;
 }
 
 .btn {
   color: white;
-  margin-top: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
-.card {
-  height: 1040px;
-  flex-direction: row;
-  justify-content: space-between;
-  border-radius: 0%;
-  border: none;
-}
-.card-user-show {
-  color: blue;
-  background-color: white;
-  height: 800px;
-  display: flex;
-  width: 555px;
-  padding: 1.25rem;
-  border-radius: 0%;
+.bg-blue {
+  background-color: #e3ecff;
+  color: #97B8FD;
+  border-radius: 40px;
 }
 
-.card-user-right {
-  display: flex;
-  flex-direction: column;
-  .card-imagee {
-    height: 384px;
-    width: 669px;
-    object-fit: cover;
-    border-radius: 0%;
-  }
+.bg-blue-second {
+  background-color: #e3ecff;
+  color: #85abfd;
 }
 
-.card-user-body {
-  display: flex;
-  flex-direction: column;
+.bg-orange {
   background-color: #ED746D;
   color: white;
 }
+
+.bg-orange-second {
+  background-color: #e6aba8;
+  border-radius: 40px;
+}
+
+.img-meal img {
+  object-fit: cover;
+  border-radius: 0;
+}
+
+.btn-resa {
+  background-color: white;
+  border-radius: 40px;
+  color: #ED746D;
+}
+
+.title-meal {
+  font-size: 24px;
+}
+
+.adress-meal {
+  margin-left: 95px;
+}
+

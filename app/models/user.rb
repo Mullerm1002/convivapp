@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :chatrooms_as_junior, foreign_key: :user_junior, class_name: 'Chatroom'
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+         
   # attr_accessor :email, :password, :password_confirmation, :remember_me, :first_name
 
 
