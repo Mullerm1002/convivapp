@@ -8,6 +8,14 @@
           <div class="card-product-infos">
             <h2 class="text-dark"><%= offer.title %></h2>
             <p class="text-dark"><%= l(offer.date, format: :long) %></p>
+            <div>  
+              <%= link_to "Editer", edit_offer_path(offer), class:"btn btn-ghost"%> 
+              <%= link_to "Supprimer", 
+                          offer_path(offer),
+                          method: :delete,
+                          data: { confirm: "Etes-vous sûrs ?"},
+                          class:"btn btn-ghost" %> 
+            </div>
           </div>
         </div>
       <% end %>
