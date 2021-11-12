@@ -70,8 +70,8 @@ class ReservationsController < ApplicationController
     user_junior = @reservation.user
     if @reservation.accepted?
       @chatroom = Chatroom.find_or_create_by(
-        name: "#{user_senior.full_name} <=> #{user_junior.full_name}", 
-        user_senior: user_senior, 
+        name: "#{user_senior.full_name} & #{user_junior.full_name}",
+        user_senior: user_senior,
         user_junior: user_junior
       )
       redirect_to chatroom_path(@chatroom) and return
