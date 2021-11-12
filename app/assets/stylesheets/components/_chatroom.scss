@@ -1,10 +1,24 @@
+.body-chatroom {
+  background-color: #99B8FE;
+  height: 91vh;
+}
+
+.container-chatroom {
+  margin-left: 7%;
+  margin-right: 7%;
+} 
+
+.list-group {
+  width: 22%;
+}
 .chatroom {
   background: white;
-  height: calc(100vh - 70px);
+  height: calc(80vh - 70px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   border-top: 1px solid $gray-200;
+  width: 88%;
 
   h1 {
     padding: 0.5rem 1rem;
@@ -13,11 +27,21 @@
   }
 }
 
+// .window {
+//   height: 400px;
+// }
+
+.return {
+  color: white;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 #messages {
   padding: 0 1rem;
   padding-top: 1rem;
   overflow: scroll;
-  max-height: calc(100vh - 70px - 65px - 71px);
+  max-height: calc(80vh - 70px - 65px - 71px);
 }
 
 #new_message {
@@ -27,4 +51,12 @@
   .form-group {
     margin-bottom: 0;
   }
+}
+
+.title-chat {
+  background-color: white;
+  color: #3E49E3;
+  height: 65px;
+  padding-left: 21px;
+  align-items: center;
 }

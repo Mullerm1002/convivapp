@@ -29,12 +29,14 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 // import { testFunction } from '../components/exemple';
 import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete'
+import { initDashboard } from '../components/dashboard'
 
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   initMapbox();
   initAutocomplete();
+  initDashboard();
 
   // testFunction()
 });

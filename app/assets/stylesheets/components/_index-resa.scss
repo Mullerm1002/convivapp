@@ -12,16 +12,94 @@
   background-color: #E9F7F9;
   // height: 50px;
 }
-
-.container-resa {
-  margin-left: 300px;
-  margin-right: 100px;
+.background-color-top {
+  height: 200px;
+  background-color: #99B8FE;
 }
+.container-resa {
+  display: flex;
+  flex-direction: column;
+  // margin-left: 200px;
+  // margin-right: 200px;
+  position: absolute;
+  top: 70px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 200px;
+  right: 200px;
+  // text-align: center;
+}
+.profile-top {
+  display: flex;
+  border-radius: 4px;
+  margin: 50px 0px 50px 0px;
+  height: 220px;
+  background: white;                         /* White background */
+  box-shadow: 0 10px 30px rgba(0,0,0,.1);
+  
+} 
+.profile-infos {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  border-radius: 4px;
+}
+.profile-avatar {
+  border-radius: 50%;
+  margin: 20px;
+  padding: 0px;
+}
+
+img {
+  height: 100%;
+}
+
+.profile-description {
+  padding-top: 20px;
+}
+.profile-actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100%;
+  border-radius: 4px;
+}
+.btn-custom {
+  padding: 8px 24px;
+  color: whitesmoke;
+  background: #ed746d;
+  transition: background 0.3s ease;
+  height: 30%;
+  text-align: center;
+  padding: 20px;
+}
+.btn-custom:hover {
+  background: rgba(237,116,109,0.8);
+  color: whitesmoke;
+
+}
+
+.simple-calendar {
+  margin-top: 20px;
+}
+
 #infos-offer-validate{
   display: flex;
   flex-direction: column;
 }
+
 #validate-offer {
   display: flex;
   justify-content: space-around;
+}
+
+#dashboard-header {
+  button {
+    color: #ED746D;
+  }
+
+  button.active {
+    background-color: #ED746D;
+    color: #fff;
+  }
 }

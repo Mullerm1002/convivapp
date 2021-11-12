@@ -1,29 +1,40 @@
-<br>
-<br>
-<br>
-<br>
-<div class="d-flex">
-  <div class="list-group w-200px bg-white br-light">
-    <% @chatrooms.each do |chatroom| %>
-      <%= link_to "##{chatroom.name}", chatroom_path(chatroom), class: "list-group-item #{'active' if chatroom == @chatroom}" %>
-    <% end %>
-  </div>
-
-
-  <div class="chatroom">
-    <h1>#<%= @chatroom.name %></h1>
-
-    <div>
-      <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
-        <% @chatroom.messages.each do |message| %>
-          <%= render "messages/message", message: message %>
+<div class="body-chatroom">
+  <div class= container-chatroom>
+    <%= link_to "Retour à mon profil", reservations_path, class:"btn return"%>
+    <div class="d-flex window">
+      <div class="list-group bg-white br-light">
+        <span class="title-chat d-flex">Discussions</span>
+        <% @chatrooms.each do |chatroom| %>
+          <%= link_to "##{chatroom.name}", chatroom_path(chatroom), class: "list-group-item #{'active' if chatroom == @chatroom}" %>
         <% end %>
       </div>
 
-      <%= simple_form_for [ @chatroom, @message ] do |f| %>
-        <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.name}" %>
-      <% end %>
+      <div class="chatroom">
+        <h1>#<%= @chatroom.name %></h1>
+
+        <div>
+          <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
+            <% @chatroom.messages.each do |message| %>
+              <%= render "messages/message", message: message %>
+            <% end %>
+          </div>
+
+          <%= simple_form_for [ @chatroom, @message ] do |f| %>
+            <%= f.input :content, label: false, placeholder: "Tapez votre message ici" %>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+    Copyright © 2020-2021 Matt & Alex & Leo . All rights reserved.
+  </div>
+</div>

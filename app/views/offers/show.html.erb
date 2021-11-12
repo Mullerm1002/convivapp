@@ -1,29 +1,90 @@
-<h1>Proposition de diner</h1>
-<h2><%= @offer.title %></h2>
-<p><%= @offer.address %></p>
-<p><%= @offer.date %></p>
-<p><%= @offer.description %></p>
+<div class="body ">
+  <div class="container">
+    <%= link_to "Retour aux propositions", offers_path(), class: "btn btn-show" %>
 
-<% if @offer.photo.attached? %> 
-  <p><%= cl_image_tag @offer.photo.key, height: 300, width: 400, crop: :fill %></p>
-<% end  %>
+    <div class="row mb-2">
+      <div class="col-6 p-5 bg-white mb-2">
+        <%= image_tag('user.png', class: 'avatar') %>
 
-<p><%= @offer.meal %></p>
-<br>
-<%= link_to "Retour aux propositions", offers_path(), class: "btn btn-primary" %>
-<% if policy(@offer).edit? %>
-  <%= link_to "Modifier cette proposition", edit_offer_path(@offer), class: "btn btn-warning" %>
-<% end %>
-<% if @offer.reservation.nil?%>
-  <%= link_to "Réserver L'invitation", new_offer_reservation_path(@offer), class: "btn btn-primary" %>
-<% else %>
-  <button type="button" class="btn btn btn-primary" disabled>Offre en cours de réservation</button>
-<% end %>
+        <span class="h2 d-block mt-3 font-weight-bold">
+          Dejeuner avec <%= @offer.user.first_name %>
+        </span>
 
-<% if policy(@offer).destroy? %>
-  <%= link_to "Supprimer #{@offer.title}",
-                offer_path(@offer),
-                method: :delete,
-                data: { confirm: "Are you sure?" },
-                class: "btn btn-danger" %>
-<% end %>
+        <p class="text-muted">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          <%= @offer.user.description %>
+        </p>
+
+        <div class="row text-left">
+          <% %w[Astronomie Lecture Astronomie Lecture Astronomie Lecture].each do |tag| %>
+            <div class="col-4 my-1">
+              <span class="bg-blue px-4 py-2 d-inline-block">
+                <%= tag %>
+              </span>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="row gx-4">
+          <div class="col-4 bg-blue-second ml-3 mt-3 py-2 px-3">
+            <span class="h6 d-inline-block">
+              Note
+            </span>
+
+            <div class="row">
+              <span class="col-3 h3 d-block">
+                ⭐️
+              </span>
+
+              <span class="col h3 d-block">
+                4,8
+              </span>
+            </div>
+          </div>
+
+          <div class="col-4 bg-blue-second ml-3 mt-3 py-2 px-3">
+            <span class="h6 d-inline-block">
+              Nb de repas
+            </span>
+
+            <span class="h3 d-block">
+              45
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 mb-2 bg-orange px-0">
+        <div class="img-meal">
+          <% if @offer.photo.attached? %> 
+            <%= cl_image_tag(@offer.photo.key, height: 270, width: "100%") %>
+          <% end  %>
+        </div>
+        <div class="title-meal d-block mt-3 font-weight-bold pl-4">
+          <%= @offer.title %>
+        </div>
+        <div class="desc-meal pl-4 py-2">
+                  <%# Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. %>
+          <%= @offer.description %>
+        </div>
+        <div class="adress-meal bg-orange-second col-8 d-inline-block text-center py-2">
+          <%= @offer.address %>
+        </div>
+        <%# <div class="date-meal bg-orange-second col-3 my-1 d-inline-block text-center">
+          <%= @offer.date %>
+        <%# </div> %> 
+        <%= link_to "Reserver pour le #{@offer.date}", reservations_path,class: "btn-resa p-3 mb-2 d-block text-center mx-4 my-3 text-decoration-none" %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+    Copyright © 2020-2021 Matt & Alex & Leo . All rights reserved.
+  </div>
+</div>

@@ -1,0 +1,118 @@
+.calendar {
+  &.accepted {
+    .reservation {
+      &.pending {
+        display: none;
+      }
+
+      &.denied {
+        display: none;
+      }
+
+      &.completed {
+        display: none;
+      }
+    }
+  }
+
+  &.pending {
+    .reservation {
+      &.accepted {
+        display: none;
+      }
+
+      &.denied {
+        display: none;
+      }
+
+      &.completed {
+        display: none;
+      }
+    }
+  }
+
+  &.denied {
+    .reservation {
+      &.accepted {
+        display: none;
+      }
+
+      &.pending {
+        display: none;
+      }
+
+      &.completed {
+        display: none;
+      }
+    }
+  }
+
+  &.completed {
+    .reservation {
+      &.accepted {
+        display: none;
+      }
+
+      &.pending {
+        display: none;
+      }
+
+      &.denied {
+        display: none;
+      }
+    }
+  }
+
+  .reservation {
+    color: #060305;
+
+    &.accepted {
+      background: #E5EBF9;
+    }
+
+    &.pending {
+      background: #FEF5C9;
+    }
+
+    &.denied {
+      background: #F8E0DF;
+    }
+
+    &.completed {
+      background: #b7e8c3;
+    }
+  }
+
+  .calendar-title {
+    text-align: center;
+    background: #ed746d;
+    font-size: 20px;
+    color: whitesmoke;
+    transition: background 0.3s ease;
+    padding: 4px 7px 10px 7px;
+    
+  }
+  .command {
+    background: #ed746d;
+    color: whitesmoke;
+  
+  }
+  .command:hover {
+    background: rgba(237,116,109,0.8);
+    color: whitesmoke;
+  
+  }
+  #calendar-content {
+    margin-top: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.1);
+    border-radius: 15px;
+  }
+  #dayname {
+    text-align: center;
+    color: #8b8b8b;
+  }
+  #date-number {
+    text-align: center;
+    color: #8b8b8b;
+  }
+}
