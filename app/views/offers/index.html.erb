@@ -1,39 +1,17 @@
-
-    <%# <% if policy(Offer).create? %>
-      <%# <%= link_to "Créer une invitation", new_offer_path(@offer), class:"btn btn-secondary" %> 
-    <%# <% end %> 
-
-<div class="title-offer">Invitations à diner en ligne</div>
-<div class="main-container">
-  <div>
-    <div class="container-card">
-      <div class="cards">
-        <% @offers.each do |offer| %>
-            <div class="m-3" style="width: 300px; height 350px">
-              <div class="card-user">
-                <div class="card-photo"> 
-                  <%= cl_image_tag(offer.photo.key.to_s, width: 150, height: 150, crop: :thumb, gravity: :face ) %>
-                  <div class="card-body">
-                    <div class="row">
-                      <div class="col-8"> <h2 class="card-name"> <%= link_to offer.title, offer_path(@offers) %></h2>
-                      <p class="card-date"><%= offer.date %></p>
-                      </div>
-                    </div>
-                      <p class="card-adress"><%= offer.address %></p>
-                      <p class="card-description"><%= offer.description %></p>
-                      <p class="card-meal"><%= offer.address %></p>
-                       <% if policy(Offer).create? %>
-                        <%= link_to "Créer une invitation", new_offer_path(@offer), class:"btn btn-ghost"%> 
-                      <% end  %>
-                      <%# <%= link_to "En savoir plus", annonce_path(offer), class:"btn btn-flat" %> 
-                  </div>
-                </div>
-              </div>
-          </div>
-        <% end %>
-      </div>
+<h1 class="title">Nous avons trouvé<span class="color"> 234 offres</span></h1>
+<div class="contenaire">
+  <% @offers.each do |offer| %>
+    <div class="wrapper">
+      <img class="img"><%= cl_image_tag(offer.photo.key.to_s, width: 150, height: 150, crop: :thumb, gravity: :face) %>
+      <h1>Déjeuner avec Joel</h1>
+        <p class="description"><%= offer.description %></p>
+        <p class="tags">Lecture</p>
+        <div class="cta-en-savoir-plus">En savoir +</div>
     </div>
-  </div>
-  <div id="map" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>" data-markers="<%= @markers.to_json %>">
-  </div>
+  <% end  %>
 </div>
+  <div id="map" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>" data-markers="<%= @markers.to_json %>">
+</div>
+<div id="map" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>" data-markers="<%= @markers.to_json %>">
+
+
