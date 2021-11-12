@@ -1,0 +1,5 @@
+meta_product_name : "Conviv'App"
+meta_title: "Conviv'App - Partage un moment convivial autour d'un bon repas !"
+meta_description : "L'alternative humaine pour les étudiants souhaitant manger gratuitement un repas fait maison par une personne âgée"
+meta_image : "cover.png" # devrait exister dans `app/assets/images/`
+# twitter_account : "@product_twitter_account" # requis pour les cartes Twitter
