@@ -11,11 +11,12 @@
 .container-left {
   width: 50%;
   h1 {
-    margin-top: 12%;
+    margin-top: 9%;
     margin-left: 40%;
     line-height: 150%;
     font-family: "Apercu", "sans-serif";
     color: white;
+    font-size: 34px;
   }
   span {
     color: #3E49E3;
@@ -28,7 +29,7 @@ body {
 .cta-orange {
   display: flex;
   margin-top: 2%;
-  margin-left: 12%;
+  // margin-left: 10%;
   text-decoration: none;
   background-color: #ED746D;
   transition: all 1s ease;
@@ -44,7 +45,7 @@ body {
 .cta-orange-container {
   display: flex;
   margin-top: 2%;
-  margin-left: 46%;
+  // margin-left: 46%;
   text-decoration: none;
   background-color: #ED746D;
   transition: all 1s ease;
@@ -56,6 +57,7 @@ body {
   border: none;
   margin-bottom: 4%;
   font-weight: bold;
+  margin-left: 48%;
 }
 
 .cta-orange:hover {
@@ -77,23 +79,23 @@ body {
   align-items: baseline;
   width: 400px;
   place-content: space-around;
-  margin-left: 33%;
+  margin-left: 23%;
 }
 
-.cta-grey {
-  display: flex;
-  margin-top: 2%;
-  text-decoration: none;
-  background-color: #98B8FE;
-  transition: all 1s ease;
-  color: #fff;
-  padding: 10px;
-  border-radius: 10px;
-  opacity: 0.8;
-  box-shadow: none !important;
-  border: none;
-  font-weight: bold;
-}
+// .cta-grey {
+//   display: flex;
+//   margin-top: 2%;
+//   text-decoration: none;
+//   background-color: #98B8FE;
+//   transition: all 1s ease;
+//   color: #fff;
+//   padding: 10px;
+//   border-radius: 10px;
+//   opacity: 0.8;
+//   box-shadow: none !important;
+//   border: none;
+//   font-weight: bold;
+// }
 
 .apost {
   position: relative;
@@ -121,6 +123,8 @@ body {
       text-align : center;
       margin-top: 11%;
       color: #001E71;
+      margin-left: 6%;
+      margin-right: 6%;
     }
   p {
     text-align : center;
@@ -136,22 +140,27 @@ body {
   margin-top: 4%;
   margin-bottom: 4%;
   font-weight: 700;
+  color: #ED746D;
 }
 
 .title-4 {
   margin-top: 2%;
   font-family: 'Dancing Script', cursive;
-  font-size: 36px;
+  font-size: 32px;
+  color: #ED746D;
 }
 
 .mt-3 {
   font-family: "Apercu", "sans-serif";
+  width: 340px;
 }
 
 .m-md-auto {
   width: 140px;
+  height: 127px;
   display: block;
 }
+
 .mamie {
   height: 250px;
   position: relative;
