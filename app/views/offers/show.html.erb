@@ -4,7 +4,16 @@
 
     <div class="row mb-2">
       <div class="col-6 p-5 bg-white mb-2">
-        <%= image_tag('user.png', class: 'avatar') %>
+        <% if @offer.user.avatar.attached? %>
+              <%= cl_image_tag(@offer.user.avatar.key,
+                :transformation=>[
+                {:gravity=>"face", :height=>400, :width=>400, :crop=>"crop"},
+                {:radius=>"max"},
+                {:width=>200, :crop=>"scale"}
+                ]) %>
+            <% else %>
+              <%= image_tag "user.png" %>
+            <% end %>
 
         <span class="h2 d-block mt-3 font-weight-bold">
           Dejeuner avec <%= @offer.user.first_name %>
@@ -19,7 +28,7 @@
           <% %w[Astronomie Lecture Astronomie Lecture Astronomie Lecture].each do |tag| %>
             <div class="col-4 my-1">
               <span class="bg-blue px-4 py-2 d-inline-block">
-                <%= tag %>
+                <%= @offer.tag_list %>
               </span>
             </div>
           <% end %>

@@ -9,9 +9,17 @@ class OffersController < ApplicationController
       {
         lat: offer.latitude,
         lng: offer.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { offer: offer })
+        info_window: render_to_string(partial: "info_window", locals: { offer: offer }),
+        image_url:
+          if offer.user.avatar.attached?
+            helpers.asset_url("https://res.cloudinary.com/convivapp/image/upload/v1636813977/development/#{offer.user.avatar.key}.jpg")
+          else
+            helpers.asset_url("user.png")
+          end
+        # asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
       }
     end
+    
   end
 
   def new
@@ -22,6 +30,7 @@ class OffersController < ApplicationController
   def create
     @offer = Offer.new(offer_params)
     @offer.user = current_user
+    @offer.tag_list = params[:offer][:tags] 
     authorize @offer
     if @offer.save
       redirect_to offer_path(@offer), notice: "L'invitation a été créée avec succès !"
@@ -60,6 +69,6 @@ class OffersController < ApplicationController
   end
 
   def offer_params
-    params.require(:offer).permit(:title, :address, :date, :description, :photo, :meal)
+    params.require(:offer).permit(:title, :address, :date, :description, :photo, :name, :tag_list)
   end
 end

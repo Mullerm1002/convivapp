@@ -5,11 +5,14 @@
       <%= cl_image_tag(offer.photo.key.to_s, class:"plat", width: 150, height: 150, crop: :thumb, gravity: :face) %>
       <h1><%= offer.title %> </h1>
         <p class="description"><%= offer.description %></p>
-        <p class="tags">Lecture</p>
+          <% offer.tag_list.first&.split(" ")&.each do |tag| %>
+            <div class="tags">
+              <%= tag %>
+            </div>
+          <% end %>
+          <%# <p class="tags"> <%= offer.tag_list</p> %>
         <%= link_to "En savoir +", offer_path(offer), class:'cta-en-savoir-plus'%>
     </div>
   <% end  %>
     <div id="map" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>" data-markers="<%= @markers.to_json %>"></div>
 </div>
-
-
