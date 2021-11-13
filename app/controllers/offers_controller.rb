@@ -12,6 +12,7 @@ class OffersController < ApplicationController
         info_window: render_to_string(partial: "info_window", locals: { offer: offer })
       }
     end
+    
   end
 
   def new
@@ -22,6 +23,7 @@ class OffersController < ApplicationController
   def create
     @offer = Offer.new(offer_params)
     @offer.user = current_user
+    @offer.tag_list = params[:offer][:tags] 
     authorize @offer
     if @offer.save
       redirect_to offer_path(@offer), notice: "L'invitation a été créée avec succès !"
@@ -60,6 +62,6 @@ class OffersController < ApplicationController
   end
 
   def offer_params
-    params.require(:offer).permit(:title, :address, :date, :description, :photo, :meal)
+    params.require(:offer).permit(:title, :address, :date, :description, :photo, :name, :tag_list)
   end
 end

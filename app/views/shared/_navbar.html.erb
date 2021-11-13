@@ -25,15 +25,15 @@
             <%= link_to current_user.first_name, reservations_path, class:"nav-link", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           </li>
           <li class="nav-item dropdown">
-            <% if current_user.avatar.nil? %>
-              <%= image_tag "user.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <% else %>
+            <% if current_user.avatar.attached? %>
               <%= cl_image_tag(current_user.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false,
                 :transformation=>[
                 {:gravity=>"face", :height=>400, :width=>400, :crop=>"crop"},
                 {:radius=>"max"},
                 {:width=>200, :crop=>"scale"}
                 ]) %>
+            <% else %>
+              <%= image_tag "user.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% end %>
             
             <%# <%= image_tag "user.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
