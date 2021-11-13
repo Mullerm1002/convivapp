@@ -16,4 +16,12 @@ class ReservationPolicy < ApplicationPolicy
   def update?
     true
   end
+
+  def validate?
+    record.offer.user == user
+  end
+
+  def deny?
+    record.offer.user == user
+  end
 end

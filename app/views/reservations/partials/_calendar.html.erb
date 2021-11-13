@@ -1,4 +1,22 @@
 <div id="calendar" class="calendar all">
+  <div>
+    <% @my_pending_offers.each do |offer| %>
+      <%= link_to(offer_path(offer), class: 'text-decoration-none') do %>
+        <div class="card-product my-3">
+          <%= cl_image_tag(offer.photo.key) %>
+
+          <div class="card-product-infos">
+            <h2 class="text-dark"><%= offer.title %></h2>
+            <p class="text-dark"><%= l(offer.date, format: :long) %></p>
+            <div>  
+              <%= link_to "Valider", reservation_validate_path(offer.reservation), class:"btn btn-ghost", method: :post%> 
+              <%= link_to "Refuser", reservation_deny_path(offer.reservation), class:"btn btn-ghost", method: :post%> 
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %> 
+  </div>
   <%= month_calendar events: @reservations do |date, reservations| %>
     <%= date %>
     <% reservations.each do |reservation| %>

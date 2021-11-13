@@ -72,8 +72,8 @@
         </div>
         <%# <div class="date-meal bg-orange-second col-3 my-1 d-inline-block text-center">
           <%= @offer.date %>
-        <%# </div> %> 
-        <%= link_to "Reserver pour le #{@offer.date}", reservations_path,class: "btn-resa p-3 mb-2 d-block text-center mx-4 my-3 text-decoration-none" %>
+        <%# </div> %>
+        <%= link_to "Reserver pour le #{@offer.date}", offer_reservations_path(@offer), class: "btn-resa p-3 mb-2 d-block text-center mx-4 my-3 text-decoration-none", method: :post %>
       </div>
     </div>
   </div>
