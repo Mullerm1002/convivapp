@@ -35,7 +35,7 @@ class ReservationsController < ApplicationController
         user_senior: user_senior,
         user_junior: user_junior
       )
-      redirect_to reservations_path and return
+      redirect_to reservations_path, notice: "La réservation a été enregistrée avec succès !"
       # @reservation.status = "En attente de validation"
       # redirect_to reservations_path
     else
@@ -47,7 +47,7 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.find(params[:id])
     authorize @reservation
     @reservation.destroy
-    redirect_to reservations_path()
+    redirect_to reservations_path, notice: "La réservation a été supprimée avec succès !"
   end
 
   def edit
