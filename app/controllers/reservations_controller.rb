@@ -29,11 +29,19 @@ class ReservationsController < ApplicationController
     user_senior = @reservation.offer.user
     user_junior = @reservation.user
     if @reservation.save
-      @chatroom = Chatroom.find_or_create_by(
-        name: "#{user_senior.full_name} & #{user_junior.full_name}",
-        user_senior: user_senior,
-        user_junior: user_junior
-      )
+      if current_user.role == "junior"
+        @chatroom = Chatroom.find_or_create_by(
+          name: "#{user_senior.full_name}",
+          user_senior: user_senior,
+          user_junior: user_junior
+        )
+      else
+        @chatroom = Chatroom.find_or_create_by(
+          name: "#{user_junior.full_name}",
+          user_senior: user_senior,
+          user_junior: user_junior
+        )
+      end
       redirect_to reservations_path, notice: "La réservation a été enregistrée avec succès !"
       # @reservation.status = "En attente de validation"
       # redirect_to reservations_path

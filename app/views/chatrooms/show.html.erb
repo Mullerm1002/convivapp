@@ -5,12 +5,12 @@
       <div class="list-group bg-white br-light">
         <span class="title-chat d-flex">Discussions</span>
         <% @chatrooms.each do |chatroom| %>
-          <%= link_to "##{chatroom.name}", chatroom_path(chatroom), class: "list-group-item #{'active' if chatroom == @chatroom}" %>
+          <%= link_to "#{chatroom.name}", chatroom_path(chatroom), class: "list-group-item #{'active' if chatroom == @chatroom}" %>
         <% end %>
       </div>
 
       <div class="chatroom">
-        <h1>#<%= @chatroom.name %></h1>
+        <h1><%= @chatroom.name %></h1>
 
         <div>
           <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
@@ -20,6 +20,7 @@
           </div>
 
           <%= simple_form_for [ @chatroom, @message ] do |f| %>
+            <%= f.hidden_field current_user, value: current_user.first_name %>
             <%= f.input :content, label: false, placeholder: "Tapez votre message ici" %>
           <% end %>
         </div>
