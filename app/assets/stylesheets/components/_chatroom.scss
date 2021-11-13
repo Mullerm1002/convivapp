@@ -6,11 +6,28 @@
 .container-chatroom {
   margin-left: 7%;
   margin-right: 7%;
+  .list-group-item {
+    text-decoration: none;
+    color: rgb(97, 97, 97);
+    border: 0px;
+    &:hover {
+      color: #3E49E3;
+    }
+    &.active {
+      background-color: #b8cefc;
+      border-color: #b8cefc;
+      color: #3E49E3;
+    }
+  }
 } 
 
 .list-group {
   width: 22%;
+  border-right: 1px solid $gray-200;
 }
+
+
+
 .chatroom {
   background: white;
   height: calc(80vh - 70px);
@@ -22,8 +39,8 @@
 
   h1 {
     padding: 0.5rem 1rem;
-    border-bottom: 1px solid $gray-200;
-    margin-bottom: 0;
+    margin-top: 1%;
+    color: #3E49E3;
   }
 }
 
@@ -42,6 +59,28 @@
   padding-top: 1rem;
   overflow: scroll;
   max-height: calc(80vh - 70px - 65px - 71px);
+  display: flex;
+  flex-direction: column;
+  .message-container {
+    margin-bottom: 20px;
+    max-width: 70%;
+    min-width: 35%;
+    background: #e6e9ef;
+    padding: 10px;
+    border-radius: 0px 10px 10px 10px;
+    &.active_user {
+      align-self: flex-end;
+      text-align: right;
+      border-radius: 10px 0px 10px 10px;
+    }
+    .author {
+      font-style: normal;
+      font-weight: bold;
+    }
+    small {
+      color: $gray-500;
+    }
+  }
 }
 
 #new_message {
