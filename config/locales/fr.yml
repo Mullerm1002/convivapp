@@ -219,3 +219,9 @@ fr:
       medium: "%d %B %Y"
       short: "%d %b %Hh%M"
     pm: pm
+
+  devise:
+    sessions:
+      user:
+        signed_in: "Vous êtes connecté !"
+  
