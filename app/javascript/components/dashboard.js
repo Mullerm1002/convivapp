@@ -16,6 +16,7 @@ const initDashboard = () => {
 
   $.each(headerButtons, function(index, currentButton) {
     $(`#${currentButton}`).click(function() {
+      
       calendar[0].setAttribute('class', `calendar ${currentButton}`)
       $(this).addClass('active');
       seniorReservationsBtn.removeClass('active');

@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :offers do
     resources :reservations, only: [:new, :create]
   end
+  post '/reservations/:id/deny', to: 'reservations#deny', as: 'reservation_deny'
+  post '/reservations/:id/accepted', to: 'reservations#validate', as: 'reservation_validate'
 
   resources :reservations, only: [:index]
   #, only: [:destroy, :index]

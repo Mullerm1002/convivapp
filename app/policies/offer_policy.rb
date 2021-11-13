@@ -1,12 +1,8 @@
 class OfferPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all.select { |offer| offer.reservation.nil? || "en attente de validation" }
+      scope.all.select { |offer| offer.reservation.nil? || offer.reservation.status == "pending" }
     end
-  end
-
-  def index?
-    true
   end
 
   def create?

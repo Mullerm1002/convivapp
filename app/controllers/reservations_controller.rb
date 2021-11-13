@@ -10,30 +10,15 @@ class ReservationsController < ApplicationController
     # Offre créée par le User senior
     @my_offers = Offer.where(user: current_user)
 
-    # reservation faite par le User junior avec le statut en refuse
-    @denied_reservations = policy_scope(Reservation).where(status: "denied")
-
-    # les reservations refusees par le User senior
-    @my_denied_reservations = Reservation.where(offer: @my_offers).where(status: "denied")
-
-    # reservation faite par le User junior avec le statut en attente
-    @reservations_booking = policy_scope(Reservation).where(status: "pending")
-
-    # les reservations en attente de validation par le User senior
-    @my_reservations = Reservation.where(offer: @my_offers).where(status: "pending")
-
-    # reservation faite par le User junior avec le statut "valide"
-    @validated_reservations = policy_scope(Reservation).where(status: "accepted")
-    # les reservations validees par le User senior
-    @my_validated_reservations = Reservation.where(offer: @my_offers).where(status: "accepted")
+    @my_pending_offers = @my_offers.joins(:reservation).where(reservation: {status: "pending"})
 
     @reservations =
-      Reservation
-      .joins(:offer)
-      .where(user_id: current_user.id)
-      .or(Reservation.joins(:offer).where(offer: { user_id: current_user.id }))
+      policy_scope(Reservation)
+        .joins(:offer)
+        .where(user_id: current_user.id)
+        .or(Reservation.joins(:offer).where(offer: { user_id: current_user.id }))
   end
-
+ 
   def new
     @reservation = Reservation.new
   end
@@ -42,10 +27,17 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new
     @reservation.offer = @offer
     @reservation.user = current_user
+    user_senior = @reservation.offer.user
+    user_junior = @reservation.user
     if @reservation.save
+      @chatroom = Chatroom.find_or_create_by(
+        name: "#{user_senior.full_name} & #{user_junior.full_name}",
+        user_senior: user_senior,
+        user_junior: user_junior
+      )
+      redirect_to chatroom_path(@chatroom) and return
       # @reservation.status = "En attente de validation"
-      @reservation.save
-      redirect_to reservations_path()
+      # redirect_to reservations_path
     else
       render "reservations/show"
     end
@@ -53,31 +45,47 @@ class ReservationsController < ApplicationController
 
   def destroy
     @reservation = Reservation.find(params[:id])
-    @reservation.destroy
     authorize @reservation
+    @reservation.destroy
     redirect_to reservations_path()
   end
 
   def edit
   end
 
-  def update
+  # def update
+  #   @reservation = Reservation.find(params[:id])
+  #   @reservation.status = params[:reservation][:status]
+  #   @reservation.save
+  #   authorize @reservation
+  #   user_senior = @reservation.offer.user
+  #   user_junior = @reservation.user
+  #   if @reservation.accepted?
+  #     @chatroom = Chatroom.find_or_create_by(
+  #       name: "#{user_senior.full_name} & #{user_junior.full_name}",
+  #       user_senior: user_senior,
+  #       user_junior: user_junior
+  #     )
+  #     redirect_to chatroom_path(@chatroom) and return
+  #   end
+  #   # TODO : redirect to a proper view
+  #   redirect_to root_path
+  # end
+
+  def validate
     @reservation = Reservation.find(params[:id])
-    @reservation.status = params[:reservation][:status]
-    @reservation.save
     authorize @reservation
-    user_senior = @reservation.offer.user
-    user_junior = @reservation.user
-    if @reservation.accepted?
-      @chatroom = Chatroom.find_or_create_by(
-        name: "#{user_senior.full_name} & #{user_junior.full_name}",
-        user_senior: user_senior,
-        user_junior: user_junior
-      )
-      redirect_to chatroom_path(@chatroom) and return
-    end
-    # TODO : redirect to a proper view
-    redirect_to root_path
+    @reservation.status = "accepted"
+    @reservation.save
+    redirect_to reservations_path
+  end
+
+  def deny
+    @reservation = Reservation.find(params[:id])
+    authorize @reservation
+    @reservation.status = "denied"
+    @reservation.save
+    redirect_to reservations_path
   end
 
   private
