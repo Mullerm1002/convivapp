@@ -19,7 +19,6 @@ offer_1 = Offer.new(
   title: "Mon premier repas Conviv'App",
   date: "Mon, 1 Nov 2021",
   description: "Bonjour tout le monde 😊, je vous propose de partager un moment convivial chez moi autour d'un gratin de chou fait maison ! 👩‍🍳",
-  meal: "Gratin de chou avec une mousse en chocolat en dessert",
   user: matt
 )
 
@@ -34,7 +33,6 @@ offer_2 = Offer.new(
   title: "Dîner et jeux de société 🎲",
   date: "Tue, 23 Nov 2021",
   description: "Bonjour les jeunes ! Venez manger une excellente tarte au camembert à la maison",
-  meal: "tarte au camembert en entrée, plat & dessert",
   user: matt
 )
 
@@ -49,7 +47,6 @@ offer_3 = Offer.new(
   title: "Légumes du jardin autour de ma cheminée 🥣",
   date: "Tue, 23 Nov 2021",
   description: "J'ai beaucoup de légumes et pas assez de bouche pour tout utiliser... Souhaitez-vous gouter ma soupe faite maison ?",
-  meal: "soupe de courge avec mes légumes du jardin ",
   user: matt
 )
 
@@ -64,7 +61,6 @@ offer_4 = Offer.new(
   title: "Poké bowl revisité",
   date: "Wed, 24 Nov 2021",
   description: "Bonjour, j'adore les jeux de cartes et vous propose un poké bowl d'exception",
-  meal: "poké powl aux milles légumes ",
   user: matt
 )
 
@@ -79,7 +75,6 @@ offer_5 = Offer.new(
   title: "Le plat de mon enfance avec son histoire",
   date: "Thu, 25 Nov 2021",
   description: "Bonjour les enfants 👋, je vous propose de découvrir le plat de mon enfance avec son histoire et peut-être sa recette ! 😊 ",
-  meal: "Riz Saumon avec un Tiramisu maison ",
   user: matt
 )
 
@@ -94,7 +89,6 @@ offer_6 = Offer.new(
   title: "Le burger de mon ancien restaurant",
   date: "Fri, 26 Nov 2021",
   description: "Bonjour à tous👋, je vous propose de revivre le succès de mon ancien restaurant en goutant à mon burger maison ! 😊 ",
-  meal: "Burger Frites pour tous !",
   user: matt
 )
 
@@ -109,7 +103,6 @@ offer_7 = Offer.new(
   title: "La pizza de Mamma",
   date: "Sat, 27 Nov 2021",
   description: "Une pizza Mamma faite maison offerte si vous arrivez à réparer ma télé 📺 ! ",
-  meal: "Pizza sans gluten ",
   user: matt
 )
 
@@ -124,7 +117,6 @@ offer_8 = Offer.new(
   title: "Trois fois plus de piments",
   date: "Sun, 28 Nov 2021",
   description: "Bonjour les jeunes, voulez-vous partager une soirée avec moi ? Je fais un très bon plat et suis une experte aux dominos ! ",
-  meal: "Nouilles sautées avec café au lait glacé ",
   user: matt
 )
 
@@ -138,7 +130,6 @@ offer_9 = Offer.new(
   title: "Pour les carnivores et les loups-garous (le jeu)",
   date: "Mon, 29 Nov 2021",
   description: "Bonjour à tous, je suis un grand fan du jeu de société - le Loup Garou mais il me manque un participant. 🐺 ",
-  meal: "Steak du boucher avec des herbes de provences ",
   user: matt
 )
 
@@ -153,7 +144,6 @@ offer_10 = Offer.new(
   title: "Soirée Koh-Lanta et Steack tartare",
   date: "Mon, 29 Nov 2021",
   description: "Bonjour à tous, venez regarder la finale de Koh-Lanta chez moi !",
-  meal: "Steack tartare avec une cuisson à point...",
   user: matt
 )
 
