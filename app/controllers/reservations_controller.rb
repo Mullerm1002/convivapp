@@ -5,8 +5,7 @@ class ReservationsController < ApplicationController
   def index
     # @reservations = Reservation.all
     start_date = params.fetch(:date, Date.today).to_date
-
-
+    
     # Offre créée par le User senior
     @my_offers = Offer.where(user: current_user)
 
@@ -18,7 +17,7 @@ class ReservationsController < ApplicationController
         .where(user_id: current_user.id)
         .or(Reservation.joins(:offer).where(offer: { user_id: current_user.id }))
   end
- 
+
   def new
     @reservation = Reservation.new
   end
