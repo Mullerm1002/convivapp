@@ -6,7 +6,7 @@
       <h1><%= offer.title %> </h1>
         <p class="description"><%= offer.description %></p>
         <p class="tags">Lecture</p>
-        <div class="cta-en-savoir-plus">En savoir +</div>
+        <%= link_to "En savoir +", offer_path(offer), class:'cta-en-savoir-plus'%>
     </div>
   <% end  %>
     <div id="map" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>" data-markers="<%= @markers.to_json %>"></div>
