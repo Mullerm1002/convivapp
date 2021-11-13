@@ -35,7 +35,7 @@ class ReservationsController < ApplicationController
         user_senior: user_senior,
         user_junior: user_junior
       )
-      redirect_to chatroom_path(@chatroom) and return
+      redirect_to reservations_path and return
       # @reservation.status = "En attente de validation"
       # redirect_to reservations_path
     else
