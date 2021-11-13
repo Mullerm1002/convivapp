@@ -53,11 +53,16 @@ body {
   padding: 10px;
   border-radius: 10px;
   opacity: 0.8;
+  width: 100px;
   box-shadow: none !important;
   border: none;
   margin-bottom: 4%;
   font-weight: bold;
   margin-left: 48%;
+}
+.cta-orange-container:hover {
+  text-decoration: none;
+  color: white;
 }
 
 .cta-orange:hover {
@@ -162,10 +167,9 @@ body {
 }
 
 .mamie {
-  height: 250px;
+  height: 200px;
   position: relative;
-  left: 82%;
-  margin-top: 12ù;
+  left: 90%;
   margin-top: -22%;
 }
 
