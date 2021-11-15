@@ -1,5 +1,20 @@
-<h1 class="title">Nous avons trouvé<span class="color"> <%= Offer.count %> offres</span></h1>
+<div class="search-container"> 
+  <div>
+    <h1 class="title">Nous avons trouvé<span class="color"> <%= Offer.count %> offres</span></h1>
+  </div>
+  <div class= "search-form">
+    <%= form_tag offers_path, method: :get do %>
+        <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Recherchez un hobby"
+      %>
+      <%= submit_tag "Rechercher", class: "btn search" %>
+    <% end %>
+  </div>
+</div>
 <div class="main-container">
+
   <% @offers.each do |offer| %>
     <div class="wrapper">
       <%= cl_image_tag(offer.photo.key.to_s, class:"plat", width: 150, height: 150, crop: :thumb, gravity: :face) %>

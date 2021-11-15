@@ -2,24 +2,27 @@ class OffersController < ApplicationController
   before_action :set_offer, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index]
 
-
   def index
     @offers = policy_scope(Offer)
-    @markers = Offer.where.not(latitude: nil, longitude: nil).map do |offer|
-      {
-        lat: offer.latitude,
-        lng: offer.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { offer: offer }),
-        image_url:
-          if offer.user.avatar.attached?
-            helpers.asset_url("https://res.cloudinary.com/convivapp/image/upload/v1636813977/development/#{offer.user.avatar.key}.jpg")
-          else
-            helpers.asset_url("user.png")
-          end
-        # asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
-      }
-    end
-    
+    # if params[:query].present?
+      # @offers = Offer.where("tag_list ILIKE ?", "%#{params[:query]}%")
+    # else
+      @markers = Offer.where.not(latitude: nil, longitude: nil).map do |offer|
+        {
+          lat: offer.latitude,
+          lng: offer.longitude,
+          info_window: render_to_string(partial: "info_window", locals: { offer: offer }),
+          image_url:
+            if offer.user.avatar.attached?
+              helpers.asset_url("https://res.cloudinary.com/convivapp/image/upload/v1636813977/development/#{offer.user.avatar.key}.jpg")
+            else
+              helpers.asset_url("user.png")
+            end
+          # asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
+        }
+      end
+    # end
+
   end
 
   def new
@@ -30,7 +33,7 @@ class OffersController < ApplicationController
   def create
     @offer = Offer.new(offer_params)
     @offer.user = current_user
-    @offer.tag_list = params[:offer][:tags] 
+    @offer.tag_list = params[:offer][:tags]
     authorize @offer
     if @offer.save
       redirect_to offer_path(@offer), notice: "L'invitation a été créée avec succès !"
