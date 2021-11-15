@@ -1,0 +1,91 @@
+.container-form {
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 32px;
+  box-sizing: border-box;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 834px;
+  margin-top: 90px;
+  display: flex;
+  flex-direction: column;
+  font-family: "Apercu", "sans-serif";
+  box-shadow: 0px 0px 0px 3px rgba(62,73,227,0.2);
+}
+
+.form-group {
+  font-family: "Apercu", "sans-serif";
+}
+
+.title-new-offer {
+  font-family: "Apercu", "sans-serif";
+  margin-top: 12px;
+  margin-bottom: 29px;
+  margin-left: 260px;
+}
+
+.sign-in {
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 32px;
+  box-sizing: border-box;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 349px;
+  margin-top: 90px;
+  display: flex;
+  flex-direction: column;
+  h1 {
+    margin-bottom: 26px;
+    margin-left: 52px;
+    font-family: "Apercu", "sans-serif";
+  }
+  label {
+    margin-bottom: 12px;
+    margin-top: 12px;
+    font-family: "Apercu", "sans-serif";
+    color: #001E71;
+  }
+  .field {
+    margin-top: -8px;
+    margin-bottom: 6px;
+    font-family: "Apercu", "sans-serif";
+    color: #001E71;
+  }
+  a {
+    color: #ED746D;
+  }
+}
+
+.password {
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 32px;
+  box-sizing: border-box;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 834px;
+  margin-top: 90px;
+  display: flex;
+  flex-direction: column;
+  font-family: "Apercu", "sans-serif";
+  box-shadow: 0px 0px 0px 3px rgba(62,73,227,0.2);
+}
+
+.form-inputs {
+  font-family: "Apercu", "sans-serif";
+  color: #001E71;
+  .btn {
+    color: #ED746D;
+  }
+}
+.form-actions {
+  .btn {
+    font-family: "Apercu", "sans-serif";
+    color: #001E71;
+    margin-left: -15px;
+  }
+}
