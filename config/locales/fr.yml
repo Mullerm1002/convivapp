@@ -227,4 +227,7 @@ fr:
     failure:
       user:
         already_authenticated: "Vous êtes déjà connectés"
+    registrations:
+      user:
+        signed_up: "Votre compte a été créé avec succès !"
   
