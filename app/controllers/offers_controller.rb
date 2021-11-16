@@ -4,9 +4,9 @@ class OffersController < ApplicationController
 
   def index
     @offers = policy_scope(Offer)
-    # if params[:query].present?
-      # @offers = Offer.where("tag_list ILIKE ?", "%#{params[:query]}%")
-    # else
+    if params[:query].present?
+      @offers = Offer.where("title ILIKE ?", "%#{params[:query]}%") + Offer.tagged_with(params[:query])
+    else
       @markers = Offer.where.not(latitude: nil, longitude: nil).map do |offer|
         {
           lat: offer.latitude,
@@ -18,11 +18,9 @@ class OffersController < ApplicationController
             else
               helpers.asset_url("user.png")
             end
-          # asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
         }
       end
-    # end
-
+    end
   end
 
   def new
