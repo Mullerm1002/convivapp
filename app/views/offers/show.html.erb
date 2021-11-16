@@ -1,88 +1,89 @@
 <div class="body ">
   <div class="container">
     <%= link_to "Retour aux propositions", offers_path(), class: "btn btn-show" %>
-
     <div class="row mb-2">
-      <div class="col-6 p-5 bg-white mb-2">
-        <% if @offer.user.avatar.attached? %>
-              <%= cl_image_tag(@offer.user.avatar.key, class:"avatar-card",
-                :transformation=>[
-                {:gravity=>"face", :height=>400, :width=>400, :crop=>"crop"},
-                {:radius=>"max"},
-                {:width=>200, :crop=>"scale"}
-                ]) %>
-            <% else %>
-              <%= image_tag "user.png", class:"avatar-card" %>
+      <div class="cadre">
+        <div class="col-6 p-5 bg-white mb-2">
+          <% if @offer.user.avatar.attached? %>
+                <%= cl_image_tag(@offer.user.avatar.key, class:"avatar-card",
+                  :transformation=>[
+                  {:gravity=>"face", :height=>400, :width=>400, :crop=>"crop"},
+                  {:radius=>"max"},
+                  {:width=>200, :crop=>"scale"}
+                  ]) %>
+              <% else %>
+                <%= image_tag "user.png", class:"avatar-card" %>
+              <% end %>
+
+          <span class="h2 d-block mt-3 font-weight-bold">
+            Dejeuner avec <%= @offer.user.first_name %>
+          </span>
+
+          <p class="text-muted">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            <%= @offer.user.description %>
+          </p>
+
+          <div class="row text-left my-3">
+            <% %w[Astronomie Lecture Astronomie Lecture Astronomie Lecture].each do |tag| %>
+              <div class="col-4 my-1">
+                <span class="bg-blue px-4 py-2 d-inline-block">
+                  <%= @offer.tag_list %>
+                </span>
+              </div>
             <% end %>
+          </div>
 
-        <span class="h2 d-block mt-3 font-weight-bold">
-          Dejeuner avec <%= @offer.user.first_name %>
-        </span>
-
-        <p class="text-muted">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          <%= @offer.user.description %>
-        </p>
-
-        <div class="row text-left">
-          <% %w[Astronomie Lecture Astronomie Lecture Astronomie Lecture].each do |tag| %>
-            <div class="col-4 my-1">
-              <span class="bg-blue px-4 py-2 d-inline-block">
-                <%= @offer.tag_list %>
+          <div class="row gx-4">
+            <div class="col-4 bg-blue-second ml-3 mt-3 py-2 px-3">
+              <span class="h6 d-inline-block">
+                Note
               </span>
+
+              <div class="row">
+                <span class="col-3 h3 d-block">
+                  ⭐️
+                </span>
+
+                <span class="col h3 d-block">
+                  4,8
+                </span>
+              </div>
             </div>
-          <% end %>
-        </div>
 
-        <div class="row gx-4">
-          <div class="col-4 bg-blue-second ml-3 mt-3 py-2 px-3">
-            <span class="h6 d-inline-block">
-              Note
-            </span>
-
-            <div class="row">
-              <span class="col-3 h3 d-block">
-                ⭐️
+            <div class="col-4 bg-blue-second ml-3 mt-3 py-2 px-3">
+              <span class="h6 d-inline-block">
+                Nb de repas
               </span>
 
-              <span class="col h3 d-block">
-                4,8
+              <span class="h3 d-block">
+                45
               </span>
             </div>
           </div>
+        </div>
 
-          <div class="col-4 bg-blue-second ml-3 mt-3 py-2 px-3">
-            <span class="h6 d-inline-block">
-              Nb de repas
-            </span>
-
-            <span class="h3 d-block">
-              45
-            </span>
+        <div class="col-6 mb-2 bg-orange px-0">
+          <div class="img-meal">
+            <% if @offer.photo.attached? %> 
+              <%= cl_image_tag(@offer.photo.key, height: 270, width: "100%") %>
+            <% end  %>
           </div>
+          <div class="title-meal d-block mt-3 font-weight-bold pl-4">
+            <%= @offer.title %>
+          </div>
+          <div class="desc-meal pl-4 py-2">
+                    <%# Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. %>
+            <%= @offer.description %>
+          </div>
+          <div class="adress-meal pl-4 py-2 mb-5">
+           <i class="fas fa-map-marker-alt mr-2"></i> <%= @offer.address %>
+          </div>
+          <%# <div class="date-meal bg-orange-second col-3 my-1 d-inline-block text-center">
+            <%= @offer.date %>
+          <%# </div> %>
+          <%= link_to "Reserver pour le #{@offer.date}", offer_reservations_path(@offer), class: "btn-resa p-3 mb-2 d-block text-center mx-4 my-3 text-decoration-none", method: :post %>
         </div>
-      </div>
-
-      <div class="col-6 mb-2 bg-orange px-0">
-        <div class="img-meal">
-          <% if @offer.photo.attached? %> 
-            <%= cl_image_tag(@offer.photo.key, height: 270, width: "100%") %>
-          <% end  %>
-        </div>
-        <div class="title-meal d-block mt-3 font-weight-bold pl-4">
-          <%= @offer.title %>
-        </div>
-        <div class="desc-meal pl-4 py-2">
-                  <%# Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. %>
-          <%= @offer.description %>
-        </div>
-        <div class="adress-meal bg-orange-second col-8 d-inline-block text-center py-2">
-          <%= @offer.address %>
-        </div>
-        <%# <div class="date-meal bg-orange-second col-3 my-1 d-inline-block text-center">
-          <%= @offer.date %>
-        <%# </div> %>
-        <%= link_to "Reserver pour le #{@offer.date}", offer_reservations_path(@offer), class: "btn-resa p-3 mb-2 d-block text-center mx-4 my-3 text-decoration-none", method: :post %>
       </div>
     </div>
   </div>
