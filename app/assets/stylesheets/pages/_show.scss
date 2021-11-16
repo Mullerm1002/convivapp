@@ -1,6 +1,6 @@
 .body {
   background-color: #97B8FD;
-  height: 100vh;
+  // height: 100vh;
 }
 
 .btn-show{
@@ -33,6 +33,7 @@
 .img-meal img {
   object-fit: cover;
   border-radius: 0;
+  height: 270px;
 }
 
 .btn-resa {
@@ -45,9 +46,9 @@
   font-size: 24px;
 }
 
-.adress-meal {
-  margin-left: 95px;
-}
+// .adress-meal {
+//   margin-left: 95px;
+// }
 
 .avatar-card {
   height: 5%;
@@ -56,7 +57,13 @@
 .text-muted {
   margin-top: 24px;
 }
-.mt-3 {
-  margin-top: -40px!important;
-  margin-left: 52px;
+// .mt-3 {
+//   margin-top: -40px!important;
+//   margin-left: 52px;
+// }
+
+.cadre {
+  min-height: 50vh;
+  height: 100vh;
+  display: flex;
 }
