@@ -1,8 +1,14 @@
-.container-chatroom {
+.containerz-chatroom {
   display: flex;
   justify-content: space-between;
 }
 
 .image-chatroom {
   height: 500px;
+}
+
+.chat-message {
+  margin-left: 200px;
+  margin-top: 70px;
+  text-decoration: none;
 }
