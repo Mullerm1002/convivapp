@@ -223,5 +223,8 @@ fr:
   devise:
     sessions:
       user:
-        signed_in: "Vous êtes connecté !"
+        signed_in: "Vous êtes connectés !"
+    failure:
+      user:
+        already_authenticated: "Vous êtes déjà connectés"
   
