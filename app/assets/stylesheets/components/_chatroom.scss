@@ -24,6 +24,7 @@
 .list-group {
   width: 22%;
   border-right: 1px solid $gray-200;
+  padding: 10px;
 }
 
 
@@ -38,9 +39,10 @@
   width: 88%;
 
   h1 {
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 2rem;
     margin-top: 1%;
     color: #3E49E3;
+    padding-top: 15px;
   }
 }
 
@@ -72,6 +74,11 @@
       align-self: flex-end;
       text-align: right;
       border-radius: 10px 0px 10px 10px;
+      background-color: #99B8FE;
+      color: white;
+      small {
+        color: black;
+      }
     }
     .author {
       font-style: normal;
@@ -97,5 +104,7 @@
   color: #3E49E3;
   height: 65px;
   padding-left: 21px;
-  align-items: center;
+  padding-top: 10px;
+  font-size: 20px;
+  font-weight: 500;
 }
