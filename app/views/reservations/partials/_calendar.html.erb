@@ -21,7 +21,7 @@
     <%= date %>
     <% reservations.each do |reservation| %>
       <div class="reservation <%= reservation.status %>">
-        <p><%= reservation.offer.title %></p>
+        <p><%= link_to "#{reservation.offer.title}", offer_path(reservation.offer.id), class:"color-font-reservation"%></p>
       </div>
     <% end %>
   <% end %>

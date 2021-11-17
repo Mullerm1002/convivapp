@@ -1,16 +1,35 @@
 .text-right-pic-left  {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   .item {
     width: 400px;
+    h2 {
+      color: #011E71;
+    }
     img {
       width: 300px;
       height: 300px;
       border-radius: 50%;
     }
+    p {
+      text-justify: auto;
+    }
   }
   .h1 {
     justify-content: center;
   }
+}
+.home-second-part {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 70px;
+  margin-right: 70px;
+}
+
+.text-centered {
+  text-align: center;
+  font-size: 35px;
+  margin-top: -11px;
 }

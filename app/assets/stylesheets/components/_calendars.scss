@@ -64,38 +64,68 @@
   }
 
   .reservation {
-    color: #060305;
+    text-decoration: none;
 
     &.accepted {
-      background: #E5EBF9;
+      background: #2566ff;
+      .color-font-reservation{
+        color:white;
+      }
+      :hover {
+        color:#2566ff;
+        background: white;
+        text-decoration: none;;
+      }
     }
 
     &.pending {
-      background: #FEF5C9;
+      background: #f7d21c;
+      .color-font-reservation{
+        color:#f7d21c;
+        background: none;
+      }
+      :hover {
+        color:#f7d21c;
+        background: white;
+        text-decoration: none;;
+      }
     }
 
     &.denied {
-      background: #F8E0DF;
+      background: #942521;
+      .color-font-reservation{
+        color:white;
+      }
+      :hover {
+        color:#942521;
+        background: white;
+        text-decoration: none;;
+      }
     }
 
     &.completed {
-      background: #b7e8c3;
+      background: #71e48e;
+      .color-font-reservation{
+        color:white;
+      }
+      :hover {
+        color:#71e48e;
+        background: white;
+        text-decoration: none;
+      }
     }
   }
 
   .calendar-title {
     text-align: center;
-    background: #ed746d;
     font-size: 20px;
-    color: whitesmoke;
+    color: #ed746d;
     transition: background 0.3s ease;
     padding: 4px 7px 10px 7px;
     
   }
   .command {
-    background: #ed746d;
-    color: whitesmoke;
-  
+    color: #ed746d;
   }
   .command:hover {
     background: rgba(237,116,109,0.8);
@@ -115,4 +145,64 @@
     text-align: center;
     color: #8b8b8b;
   }
+}
+
+.banner-calendar-notice-status {
+  display: flex;
+  justify-content: space-evenly;
+  margin-left: -30px;
+  margin-bottom: -30px;
+}
+
+.notice-status-color-denied {
+  height: 50px;
+  width: 200px;
+}
+
+.notice-status-color-pending {
+  height: 50px;
+  width: 200px;
+}
+
+.notice-status-color-accepted {
+  height: 50px;
+  width: 200px;
+}
+
+.notice-status-color-completed {
+  height: 50px;
+  width: 200px;
+}
+
+.square-status-button-denied {
+  height: 19px;
+  width: 19px;
+  border-radius: 5px;
+  background-color: #942521
+}
+
+.square-status-button-pending {
+  height: 19px;
+  width: 19px;
+  border-radius: 5px;
+  background-color: #f7d21c;
+}
+
+.square-status-button-accepted {
+  height: 19px;
+  width: 19px;
+  border-radius: 5px;
+  background-color: #2566ff
+}
+
+.square-status-button-completed {
+  height: 19px;
+  width: 19px;
+  border-radius: 5px;
+  background-color: #1eb444;
+}
+
+#space-evenly-end {
+  display: flex;
+  justify-content: space-evenly;
 }

@@ -1,9 +1,15 @@
 .text-left-pic-right  {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   .item {
     width: 400px;
+    h2 {
+      color: #011E71;
+    }
+    p {
+      text-justify: auto;
+    }
     img {
       width: 300px;
       height: 300px;

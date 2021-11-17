@@ -1,8 +1,14 @@
 .search-form {
-  margin-top: 17px;
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 34px;
   padding-right: 35px;
   // display: flex;
   // margin-left: 250px;
+}
+
+.search-bar-custom{
+  width: 280px;
 }
 
 .main-container {

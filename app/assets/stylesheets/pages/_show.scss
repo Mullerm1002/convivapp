@@ -1,5 +1,6 @@
 .body {
   background-color: #97B8FD;
+  margin-bottom: -30px;
   // height: 100vh;
 }
 
@@ -33,13 +34,15 @@
 .img-meal img {
   object-fit: cover;
   border-radius: 0;
-  height: 270px;
+  height: 310px;
 }
+
 
 .btn-resa {
   background-color: white;
   border-radius: 40px;
   color: #ED746D;
+  margin-top:-25px;
 }
 
 .title-meal {
@@ -51,7 +54,22 @@
 // }
 
 .avatar-card {
-  height: 5%;
+  height: 13%;
+}
+
+.show-title-haut{
+  font-size: 31px;
+  color: #011e71;
+}
+
+.taglist-show-middle{
+  position: relative;
+  top: 140px;
+}
+
+.bloc-star-and-meal{
+  position: relative;
+  top: 140px;
 }
 
 .text-muted {
@@ -64,6 +82,7 @@
 
 .cadre {
   min-height: 50vh;
-  height: 100vh;
+  height: 76vh;
+  margin-bottom: 50px;
   display: flex;
 }

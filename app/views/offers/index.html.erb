@@ -1,16 +1,20 @@
 <div class="search-container"> 
   <div>
-    <h1 class="title">Nous avons trouvé<span class="color"> <%= Offer.count %> offres</span></h1>
+    <h1 class="title">Nous avons trouvé<span class="color"> <%= Offer.count %> invitations</span></h1>
   </div>
   <div class= "search-form">
-    <%= form_tag offers_path, method: :get do %>
-        <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Recherchez un hobby"
-      %>
-      <%= submit_tag "Rechercher", class: "btn search" %>
-    <% end %>
+    <div class= "search-bar-custom">
+      <%= form_tag offers_path, method: :get do %>
+          <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Recherchez un hobby ou un repas"
+        %>
+    </div>
+    <div>
+        <%= submit_tag "Rechercher", class: "btn search" %>
+      <% end %>
+    </div>
   </div>
 </div>
 <div class="main-container">
