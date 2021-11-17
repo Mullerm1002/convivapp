@@ -14,24 +14,23 @@
   </div>
 </div>
 <div class="main-container">
-
   <% @offers.each do |offer| %>
-    <%# <%= link_to offer_path(offer) do %>  
     <div class="wrapper">
-        <%= cl_image_tag(offer.photo.key.to_s, class:"plat top", width: 150, height: 150, crop: :thumb, gravity: :face) %>
-        <h1><%= offer.title %> </h1>
-        <p class="description"><%= offer.description %></p>
-          <% offer.tag_list.first&.split(" ")&.each do |tag| %>
-            <div class="tags">
-              <%= tag %>
-            </div>
-          <% end %>
-          <%# <p class="tags"> <%= offer.tag_list</p> %>
+      <%= link_to offer_path(offer) do %> 
+        <%= cl_image_tag(offer.photo.key.to_s, class:"plat", width: 150, height: 150, crop: :thumb, gravity: :face) %>
+        <h1><%= offer.title %> </h1> 
+        <p class="description"><%= offer.description %> </p>
+        <% offer.tag_list.first&.split(" ")&.each do |tag| %>
+          <div class="tags"> 
+            <%= tag %>
+        <% end %>
+ 
           <% if offer.user.avatar.attached? %>
-            <%= cl_image_tag(offer.user.avatar.key, class:"plat", width: 150, height: 150, crop: :thumb, gravity: :face) %>
-            <% else %>
-            <%=  cl_image_tag ("user.png") %> 
-          <% end %>
+        <%= cl_image_tag(offer.user.avatar.key, lass:"plat", width: 150, height: 150, crop: :thumb, gravity: :face) %>
+      <% else %>
+          <%=  cl_image_tag ("user.png") %>
+      <% end %>
+    <% end %>
     </div>
   <% end  %>
     <div id="map" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>" data-markers="<%= @markers.to_json %>"></div>

@@ -6,7 +6,9 @@
 }
 
 .main-container {
-  
+  a {
+    text-decoration: none;
+  }
   width: 100%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -63,6 +65,7 @@
   height: 184px;
   margin-top: 24px;
   border-radius: 0vw 0vw 0vw 1vw;
+  position:relative;
 }
 
 .plat {
@@ -136,4 +139,26 @@ h1 {
 
 .color {
   color: #98B8FE;
+}
+
+.wrapper {
+  img {
+    // position:absolute;
+    left:0;
+    -webkit-transition: opacity 1s ease-in-out;
+    -moz-transition: opacity 1s ease-in-out;
+    -o-transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
+    grid-column: 1;
+    grid-row: 1;
+    margin-top: 9px;
+    margin-left: 10px;
+    border-radius: 24px;
+  }
+}
+
+.wrapper {
+  img.plat:hover {
+    opacity:0;
+  }
 }
