@@ -4,24 +4,24 @@ Chatroom.destroy_all
 User.destroy_all
 Offer.destroy_all
 
-matt = User.create(email: "matt@gmail.com", password: "matt@gmail.com", first_name: "Matt")
+matt = User.create(email: "matt@gmail.com", password: "matt@gmail.com", first_name: "Matt", role:"senior")
 leo = User.create(email: "leo@gmail.com", password: "leo@gmail.com", first_name: "Léo")
 alex = User.create(email: "alex@gmail.com", password: "alex@gmail.com", first_name: "Alex")
 senior = User.create(email: "senior@gmail.com", password: "senior@gmail.com", first_name: "Senior", role: "senior")
 junior = User.create(email: "junior@gmail.com", password: "junior@gmail.com", first_name: "Junior", role: "junior")
 
-general = Chatroom.create(name: "general", user_junior: User.first, user_senior: User.last)
+bienvenue = Chatroom.create(name: "Bienvenue", user_junior: User.first, user_senior: User.last)
 
-Message.create(chatroom: general, user: matt, content: "🤟Est-ce que vous êtes chauds ? 🔥")
-Message.create(chatroom: general, user: leo, content: "Ouaaaais !!! 🔥")
-Message.create(chatroom: general, user: alex, content: "🔥🔥🔥🔥🔥🔥🔥🔥")
+Message.create(chatroom: bienvenue, user: matt, content: "🤟Est-ce que vous êtes chauds ? 🔥")
+Message.create(chatroom: bienvenue, user: leo, content: "Ouaaaais !!! 🔥")
+Message.create(chatroom: bienvenue, user: alex, content: "🔥🔥🔥🔥🔥🔥🔥🔥")
 
 offer_1 = Offer.new(
   address: "123 Rue du Vieux Colombier, Paris 6e Arrondissement, Île-de-France, France",
   title: "Mon premier repas Conviv'App",
   date: "Mon, 1 Nov 2021",
   description: "Bonjour tout le monde 😊, je vous propose de partager un moment convivial chez moi autour d'un gratin de chou fait maison ! 👩‍🍳",
-  user: senior
+  user: matt
 )
 
 img_1 = File.open("#{Rails.root}/app/assets/images/4.jpeg")

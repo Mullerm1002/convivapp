@@ -42,11 +42,16 @@
   background-color: white;
   border-radius: 40px;
   color: #ED746D;
-  margin-top:-25px;
 }
 
-.title-meal {
+.title-meal-box {
   font-size: 24px;
+}
+
+.box-meal-content {
+ display: flex;
+ flex-direction: column;
+
 }
 
 // .adress-meal {
@@ -82,7 +87,10 @@
 
 .cadre {
   min-height: 50vh;
-  height: 76vh;
   margin-bottom: 50px;
   display: flex;
+}
+
+.cadre-height {
+  height: 85vh;
 }

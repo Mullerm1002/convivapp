@@ -10,6 +10,7 @@ export default class extends Controller {
     this.juniorTarget.classList.remove('d-none');
     this.seniorTarget.classList.add('d-none');
     this.cardTarget.classList.remove('d-none');
+    document.getElementById('role').value = 'junior';
   }
   displayFormSenior() {
   //   // this.imageTarget.classList.add('d-none');
@@ -18,7 +19,7 @@ export default class extends Controller {
   this.juniorTarget.classList.add('d-none');
   this.seniorTarget.classList.remove('d-none');
   this.cardTarget.classList.add('d-none');
-
+  document.getElementById('role').value = 'senior';
 
   }
 }
