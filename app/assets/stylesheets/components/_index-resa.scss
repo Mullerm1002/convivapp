@@ -15,19 +15,19 @@
 .background-color-top {
   height: 200px;
   background-color: #99B8FE;
-  margin-bottom: 870px;
+  margin-bottom: 180px;
 }
 .container-resa {
   display: flex;
   flex-direction: column;
   // margin-left: 200px;
   // margin-right: 200px;
-  position: absolute;
-  top: 70px;
-  margin-left: auto;
-  margin-right: auto;
-  left: 200px;
-  right: 200px;
+  // position: absolute;
+  // top: 70px;
+  // margin-left: auto;
+  // margin-right: auto;
+  // left: 200px;
+  // right: 200px;
   // text-align: center;
 }
 .profile-top {
@@ -37,8 +37,18 @@
   height: 220px;
   background: white;                         /* White background */
   box-shadow: 0 10px 30px rgba(0,0,0,.1);
-  
+  position: absolute;
+  top: 70px;
+  width: 60%;
+  transform: translateX(-50%);
+  left: 50%;
 } 
+
+.dashboard-content {
+  width: 75%;
+  margin: auto;
+}
+
 .profile-infos {
   display: flex;
   justify-content: space-between;
