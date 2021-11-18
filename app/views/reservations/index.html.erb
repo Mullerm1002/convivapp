@@ -20,13 +20,45 @@
         </div>
 
         <div class="profile-description col-lg-8">
-          <h3><%= current_user.first_name %></h3>
-          <p>Inscrit depuis <%= l(current_user.created_at, format: :medium) %></p>
+          <div>
+            <h3><%= current_user.first_name %></h3>
+            <p class="text-inscription-dashboard">Inscrit depuis <%= l(current_user.created_at, format: :medium) %></p>
+          </div>
+          <div class= "tools-notes-meal">
+            <div class= "tools-notes">
+              <div class="tools-title">
+                <span>Note</span>
+              </div>
+              <div class="madda-fakking-stars">
+                  <span>⭐️</span>
+              </div>
+              <div class="tools-numbers position-nb-stars">
+                  <span>5</span>
+              </div>
+            </div>
+            <div class="tools-meal">
+              <% if current_user.role == "senior" %>
+                <div class="tools-title">
+                  <span>Nb d'invitations</span>
+                </div>
+                <div class="tools-numbers position-nb-offers"> 
+                  <%=@my_offers.count%>
+                </div>
+              <% else %>
+                <div class="tools-title">
+                  <span>Nb de demandes</span>
+                </div>
+                <div class="tools-numbers position-nb-offers"> 
+                  <%=current_user.reservations.count%>
+                </div>
+              <% end %>
+            </div>
+          </div>
         </div>      
       </div>
       <div class="profile-actions col-lg-3">
         <%= link_to "Voir mes messages", chatrooms_path, class: "btn btn-custom" %>
-        <%= link_to "Editer mon profil", edit_user_registration_path, class: "btn btn-custom" %>
+        <%= link_to "Editer mon profil", edit_user_registration_path, class: "btn btn-custom-edit" %>
       </div>
     </div>
 

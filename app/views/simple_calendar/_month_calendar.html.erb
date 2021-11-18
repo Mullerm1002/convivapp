@@ -6,6 +6,34 @@
       <%= link_to t('simple_calendar.next', default: '>>'), calendar.url_for_next_view, class: 'btn command' %>
     </div>
   </div>
+
+  <div class="banner-calendar-notice-status">
+    <div class='notice-status-color-denied d-flex' id="space-evenly-end">
+      <div class="square-status-button-denied"></div>
+      <div class="message-notice-status">
+       <span>Invitation refusée 😧</span>      
+      </div>
+    </div>
+    <div class='notice-status-color-pending d-flex' id="space-evenly-end">
+      <div class="square-status-button-pending"></div>
+      <div class="message-notice-status">
+       <span>Invitation en attente 🤗</span>
+      </div>
+    </div>
+    <div class='notice-status-color-accepted d-flex' id="space-evenly-end">
+      <div class="square-status-button-accepted"></div>
+      <div class="message-notice-status">
+       <span>Invitation acceptée 👍</span>
+      </div>
+    </div>
+    <div class='notice-status-color-completed d-flex' id="space-evenly-end">
+      <div class="square-status-button-completed"></div>
+      <div class="message-notice-status">
+       <span>Invitation terminée 🤟</span>
+      </div>
+    </div>
+  </div>
+  
   <table class="table" id="calendar-content">
     <thead>
       <tr>

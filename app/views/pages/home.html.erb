@@ -11,44 +11,87 @@
   </div>
 </div>
 
-<div class="container">
-  <div class="content-wrapper position-relative z-index-1">
+<div class="home-second-part">
+  <h1 class="title-2  text-center">Un projet qui nous tient a coeur</h1>
+    <div class="text-left-pic-right mt-5">
+      <div class="item left-bg">
+        <h2>Convivialité</h2>
+        <p>
+        Cette proposition permet aux seniors isolés ou cherchant du contact de pouvoir discuter autours d’un
+        déjeuner/dîner. Cette solution intergénérationnelle donne la possibilité d’échanger, de favoriser 
+        les liens sociaux tout en partageant ses expériences mutuelles.
+        </p>
+      </div>
+      <div class="item">
+        <%= image_tag "convivial.jpg"%>
+      </div>
+    </div>
+    <div class="text-right-pic-left">
+      <div class="item right-bg">
+        <%= image_tag "bon_repas.jpg"%>
+      </div>
+      <div class="item">
+        <h2>Un bon repas</h2>
+        <p>
+        En plus du partage d’un moment chaleureux et sympathique, cette solution est économique et saine. 
+        Elle permet aux étudiants d’économiser sur leur budget repas et de goûter à une cuisine plus élaborée
+        et équilibrée. Manger des repas cuisinés tout en économisant et en apprenant de nouvelles recettes.
+        </p>
+      </div>
+    </div>
+    <div class="text-left-pic-right mt-5">
+      <div class="item left-bg">
+        <h2>Un défi sociétal</h2>
+        <p>
+        Avec notre projet, nous esperons atténuer l'émergence d'une rupture générationnelle nourrit par la crise
+        du Covid-19. Briser l’isolement social des aînés et développer des solidarités intergénérationnelles en
+        anime notre démarche.
+        </p>
+      </div>
+      <div class="item">
+        <%= image_tag "societal.jpg"%>
+      </div>
+    </div>
+  <%# <div class="content-wrapper position-relative z-index-1">
     <h2 class="title-2 text-center">Un projet qui nous tient à coeur</h2>
       <div class="row">
-        <div class="col-md-6 col-lg-4 mx-auto">
+        <div class="col-md-6 col-lg-4 mx-auto position-bloc">
           <div class="item mx-auto mt-5">
             <div class="picto-title-wrapper d-flex d-md-block justify-content-between align-items-center">
               <%= image_tag 'main.png', class: "m-md-auto", alt: "Aucune influence des marques"%>
-              <h3 class="title-4 my-4 text-md-center">Aucune influence<br>des marques</h3>
-              <p class="text-md-center paragraph">Pour le moment personne nous a appelé en tout cas </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 mx-auto">
+              <%# <h3 class="title-4 my-4 text-md-center">Aucune influence<br>des marques</h3> %>
+              <%# <p class="text-md-center paragraph">Pour le moment personne nous a appelé en tout cas </p> %>
+            <%# </div> %>
+          <%# </div> %>
+        <%# </div> %>
+        <%# <div class="col-md-6 col-lg-4 mx-auto position-bloc">
           <div class="item mx-auto mt-5">
             <div class="picto-title-wrapper d-flex d-md-block justify-content-between align-items-center">
             <%= image_tag 'bourse.png', class: "m-md-auto", alt: "Aucune influence des marques"%>
-              <h3 class="title-4 my-4 text-md-center">Pas de<br>publicité</h3>
+              <%# <h3 class="title-4 my-4 text-md-center">Pas de<br>publicité</h3>
               <p class="text-md-center paragraph">Aucune marque ne peut rémunérer conviv ap car nous sommes ce que nous sommes. </p>
             </div>
           </div>
         </div>
-        <div class="col-md-6 col-lg-4 mx-auto">
+        <div class="col-md-6 col-lg-4 mx-auto position-bloc">
          <div class="item mx-auto mt-5">
           <div class="picto-title-wrapper d-flex d-md-block justify-content-between align-items-center">
-          <%= image_tag 'parleur.png', class: "m-md-auto", alt: "Aucune influence des marques"%>
-            <h3 class="title-4 my-4 text-md-center">Un financement<br>sain</h3>
+          <%# <%= image_tag 'parleur.png', class: "m-md-auto", alt: "Aucune influence des marques"%>
+            <%# <h3 class="title-4 my-4 text-md-center">Un financement<br>sain</h3>
             <p class="text-md-center paragraph">Nous avons développé quelque chose d'incroyable, il faut essayer pour y croire. </p>
           </div>
           </div>
         </div>
-      </div>
-  </div>
+      </div> %>
+  <%# </div> %>
+
+  <% if user_signed_in? %>
+    <%=link_to "Voir nos invitations ", offers_path, class:"cta-orange-container"%>
+  <%else%>
+    <%=link_to "Je m'inscris", new_user_registration_path, class:"cta-orange-container" %>
+  <%end%>
 </div>
-
-<%= link_to "En savoir +", about_path, class:"cta-orange-container" %>
-
-<%= image_tag 'Mamie.png', class: "mamie" %>
+<%# <%= image_tag 'Mamie.png', class: "mamie" %>
 
 
 
@@ -84,16 +127,6 @@
   </a> %>
 </div>
 
-<div class="footer">
-  <div class="footer-links">
-    <a href="#"><i class="fab fa-github"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-facebook"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-    <a href="#"><i class="fab fa-linkedin"></i></a>
-    Copyright © 2020-2021 Alex & Léo & Matt . All rights reserved.
-  </div>
-</div>
 
 
     <%# <div class="row">

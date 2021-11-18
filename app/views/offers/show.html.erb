@@ -15,26 +15,36 @@
                 <%= image_tag "user.png", class:"avatar-card" %>
               <% end %>
 
-          <span class="h2 d-block mt-3 font-weight-bold">
+          <span class="h2 d-block mt-3 font-weight-bold show-title-haut">
             Dejeuner avec <%= @offer.user.first_name %>
           </span>
 
           <p class="text-muted">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          <% if @offer.user.description.nil?%>
+            Désolé ! Ce profil n'a pas de description d'enregistrer pour le moment. 😬
+          <% else %>
             <%= @offer.user.description %>
+          <% end %>
           </p>
 
-          <div class="row text-left my-3">
-            <% %w[Astronomie Lecture Astronomie Lecture Astronomie Lecture].each do |tag| %>
-              <div class="col-4 my-1">
+          <div class="row text-left taglist-show-middle">
+            <% @offer.tag_list.first&.split(" ")&.each do |tag| %>
+              <div class="col-3 my-1">
+                <span class="bg-blue px-4 d-inline-block">
+                  <%= tag %>
+                </span>
+              </div>
+            <% end %>
+            <%# <% %w[Astronomie Lecture Astronomie Lecture Astronomie Lecture].each do |tag| %>
+              <%# <div class="col-4 my-1">
                 <span class="bg-blue px-4 py-2 d-inline-block">
                   <%= @offer.tag_list %>
-                </span>
+                <%# </span>
               </div>
             <% end %>
           </div>
 
-          <div class="row gx-4">
+          <div class="row gx-4 bloc-star-and-meal">
             <div class="col-4 bg-blue-second ml-3 mt-3 py-2 px-3">
               <span class="h6 d-inline-block">
                 Note
@@ -82,19 +92,10 @@
           <%# <div class="date-meal bg-orange-second col-3 my-1 d-inline-block text-center">
             <%= @offer.date %>
           <%# </div> %>
-          <%= link_to "Reserver pour le #{@offer.date}", offer_reservations_path(@offer), class: "btn-resa p-3 mb-2 d-block text-center mx-4 my-3 text-decoration-none", method: :post %>
+          <%= link_to "Reserver pour le #{@offer.date}", offer_reservations_path(@offer), class: "btn-resa p-3 d-block text-center mx-4 reservation-show-button text-decoration-none", method: :post %>
         </div>
       </div>
     </div>
   </div>
 </div>
-<div class="footer">
-  <div class="footer-links">
-    <a href="#"><i class="fab fa-github"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-facebook"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-    <a href="#"><i class="fab fa-linkedin"></i></a>
-    Copyright © 2020-2021 Matt & Alex & Leo . All rights reserved.
-  </div>
-</div>
+

@@ -15,6 +15,7 @@
 .background-color-top {
   height: 200px;
   background-color: #99B8FE;
+  margin-bottom: 870px;
 }
 .container-resa {
   display: flex;
@@ -57,6 +58,64 @@ img {
 .profile-description {
   padding-top: 20px;
 }
+
+.text-inscription-dashboard {
+  color: #6c757d
+}
+
+.tools-notes-meal {
+  margin-top: 32px;
+  display: flex;
+  justify-content: space-evenly;
+  margin-left: -43px;
+}
+
+.tools-title {
+  position: relative;
+  top: 9px;
+  left: 9px;
+}
+
+.madda-fakking-stars{
+  font-size: 32px;
+  position: relative;
+  top: 4px;
+  left: 13px;
+}
+
+.tools-numbers{
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.position-nb-stars{
+  position: relative;
+  top: -44px;
+  left: 53px;
+}
+
+.position-nb-offers{
+  position: relative;
+  top: 4px;
+  left: 30px;
+}
+
+.tools-notes {
+  height: 80px;
+  width: 150px;
+  background-color: #e3ecff;
+  border-radius: 5px;
+  color: #97B8FD;
+}
+
+.tools-meal {
+  height: 80px;
+  width: 150px;
+  background-color: #e3ecff;
+  border-radius: 5px;
+  color: #97B8FD;
+}
+
 .profile-actions {
   display: flex;
   flex-direction: column;
@@ -79,6 +138,20 @@ img {
 
 }
 
+.btn-custom-edit {
+  padding: 8px 24px;
+  color: #ed746d;
+  transition: background 0.3s ease;
+  height: 30%;
+  text-align: center;
+  padding: 20px;
+}
+.btn-custom-edit:hover {
+  background: rgba(237,116,109,0.8);
+  color: whitesmoke;
+
+}
+
 .simple-calendar {
   margin-top: 20px;
 }
@@ -96,6 +169,11 @@ img {
 #dashboard-header {
   button {
     color: #ED746D;
+  }
+
+  button:hover {
+    background: rgba(237,116,109,0.8);
+    color: whitesmoke;
   }
 
   button.active {

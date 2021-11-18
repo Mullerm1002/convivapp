@@ -7,7 +7,7 @@
       <%# <a class="nav-link active" aria-current="page" href="#">Acceuil</a>  %>
 
       <%= link_to "Accueil" , root_path, class: "nav-link active" %>
-      <%= link_to "Offres", offers_path, class: "nav-link" %>
+      <%= link_to "Invitations", offers_path, class: "nav-link" %>
       <%= link_to "Créer une invitation", new_offer_path, class: "nav-link" %>
       <%= link_to "A propos", about_path, class: "nav-link" %>
       
@@ -47,8 +47,8 @@
           </li>
         <% else %>
           <li class="button-login active">
-            <%= link_to new_user_session_path, class: "nav-link btn btn-outline-warning py-2 px-4" do %>
-              <span>Login</span>
+            <%= link_to new_user_session_path, class: "nav-link btn btn-outline-warning py-2 px-4 custom-button-login-nav" do %>
+              <span>Connexion</span>
             <% end %>
           </li>
         <% end %>
