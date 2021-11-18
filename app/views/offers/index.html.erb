@@ -34,8 +34,8 @@
           <%# <p class="tags"> <%= offer.tag_list</p> %>
           <% if offer.user.avatar.attached? %>
             <%= cl_image_tag(offer.user.avatar.key, class:"plat", width: 150, height: 150, crop: :thumb, gravity: :face) %>
-            <% else %>
-            <%=  cl_image_tag("development/user_xn6waw.png") %>
+          <% else %>
+            <%=  cl_image_tag("user.png", class:"user") %> 
           <% end %>
     </div>
   <% end  %>
