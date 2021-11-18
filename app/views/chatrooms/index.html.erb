@@ -1,7 +1,7 @@
 <div class="containerz-chatroom">
-  <div class="w-200px bg-white br-light chat-message">
+  <div class="w-200px chat-message">
     <% @chatrooms.each do |chatroom| %>
-      <%= link_to "##{chatroom.name}", chatroom_path(chatroom), class: "list-group-item #{'active' if chatroom == @chatroom}" %>
+      <%= link_to "#{chatroom.name}", chatroom_path(chatroom), class: "list-group-item #{'active' if chatroom == @chatroom}" %>
     <% end %>
   </div>
   <div class="image-chatroom">

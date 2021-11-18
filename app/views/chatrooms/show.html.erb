@@ -4,8 +4,17 @@
     <div class="d-flex window">
       <div class="list-group bg-white br-light">
         <span class="title-chat d-flex">Discussions</span>
+        <% general_chatroom = Chatroom.find_by(name:"Bienvenue")%>
+        <%= link_to "Bienvenue", chatroom_path(general_chatroom), class: "list-group-item active'" %>
         <% @chatrooms.each do |chatroom| %>
-          <%= link_to "#{chatroom.name}", chatroom_path(chatroom), class: "list-group-item #{'active' if chatroom == @chatroom}" %>
+          <% if @current_user.role == "junior" && chatroom.id != general_chatroom.id%>
+            <% user_senior = chatroom.user_senior%>
+            <%= link_to "#{user_senior.first_name}", chatroom_path(chatroom), class: "list-group-item #{'active' if chatroom == @chatroom}" %>
+          <% end %>
+          <% if @current_user.role == "senior"%>
+            <% user_junior = chatroom.user_junior%>
+            <%= link_to "#{user_junior.first_name}", chatroom_path(chatroom), class: "list-group-item #{'active' if chatroom == @chatroom}" %>
+          <% end%>
         <% end %>
       </div>
 

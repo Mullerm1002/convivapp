@@ -57,7 +57,8 @@
         </div>      
       </div>
       <div class="profile-actions col-lg-3">
-        <%= link_to "Voir mes messages", chatrooms_path, class: "btn btn-custom" %>
+        <% chatroom = Chatroom.find_by(name:"Bienvenue")%>
+        <%= link_to "Voir mes messages", chatroom_path(chatroom.id), class: "btn btn-custom" %>
         <%= link_to "Editer mon profil", edit_user_registration_path, class: "btn btn-custom-edit" %>
       </div>
     </div>
