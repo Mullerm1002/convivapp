@@ -61,17 +61,20 @@
 
 .wrapper {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   grid-gap: 2px;
-  // box-shadow: 0px 0px 0px 3px rgb(62 73 227 / 20%);
   box-shadow: 0px 0px 0px 3px rgba(62,73,227,0.2);
   border-radius: 8vw 2vw 3vw 4vw;
   width: 84%;
   margin: auto;
   height: 184px;
   margin-top: 24px;
-  border-radius: 0vw 0vw 0vw 1vw;
-  position:relative;
+  border-radius: 24px 0vw 0vw 24px;
+  position: relative
+}
+
+.titre-de-offre {
+  margin-left: 24px;
 }
 
 .plat {
@@ -95,9 +98,11 @@ h1 {
 	grid-column: 2 / 4;
   margin-top: -76px;
   font-family: "Apercu", "sans-serif";
-  font-size: 14px;
+  font-size: 18px;
   margin-right: 10px;
-  margin-top: -92px;
+  margin-top: -80px;
+  margin-left: 24px;
+  margin-right: 12px;
 }
 
 .tags {
@@ -157,7 +162,7 @@ h1 {
     transition: opacity 1s ease-in-out;
     grid-column: 1;
     grid-row: 1;
-    margin-top: 9px;
+    margin-top: 7px;
     margin-left: 10px;
     border-radius: 24px;
     background-color: white;
@@ -175,11 +180,12 @@ h1 {
 }
 
 img.plat.top {
-  z-index: 2;
+  z-index: 0;
   object-fit: cover;
 }
 
 img.plat {
-  z-index: 1;
+  z-index: -1;
   object-fit: contain;
 }
+
