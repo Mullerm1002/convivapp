@@ -41,7 +41,8 @@
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%# <%= image_tag "user.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
               <%= link_to "Mon compte", reservations_path, class: "dropdown-item" %>
-              <%= link_to "Mes messages", chatrooms_path, class: "dropdown-item" %>
+              <% chatroom = Chatroom.find_by(name:"Bienvenue")%>
+              <%= link_to "Mes messages", chatroom_path(chatroom.id), class: "dropdown-item" %>
               <%= link_to "Se deconnecter", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>
