@@ -96,7 +96,40 @@
 .form-actions {
   .btn {
     font-family: "Apercu", "sans-serif";
-    color: #001E71;
+    color: white;
     margin-left: -15px;
   }
+}
+#buttton-inscrivez-vous {
+  height: 40px;
+  width: 120px;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  background-color: #ED746D;
+  padding: 1px 0px 0px 9px;
+  border-radius: 4px;
+}
+#buttton-inscrivez-vous:hover {
+  background-color: #99b8fe;
+  color: white;
+  text-decoration: none;
+}
+
+.buttton-connexion{
+  height: 40px;
+  width: 120px;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  background-color: #ED746D;
+  padding: 8px 7px 0px 9px;
+  border-radius: 4px;
+  margin-top: 9px;
+}
+
+.buttton-connexion:hover{
+  background-color: #99b8fe;
+  color: white;
+  text-decoration:none;
 }
