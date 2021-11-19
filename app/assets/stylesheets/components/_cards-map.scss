@@ -1,0 +1,29 @@
+.card-category-mapboxxx{
+  height: 200px;
+  width: 200px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
+  .mapbox-image-cards{
+    height: 150px;
+    width: 150px;
+    border-radius: 4px;
+  }
+
+  #title-title-mapbox{
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  #date-date-mapbox{
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+  }
+}

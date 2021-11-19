@@ -69,7 +69,34 @@ body {
 .cta-orange-container:hover {
   text-decoration: none;
   color: #3E49E3;
-  background-color: #99B8FE;;
+  background-color: #99B8FE;
+}
+
+.premier-button-site{
+  display: flex;
+  margin-top: 2%;
+  // margin-left: 46%;
+  text-decoration: none;
+  background-color: #ED746D;
+  transition: all 1s ease;
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  opacity: 0.8;
+  width: 170px;
+  box-shadow: none !important;
+  border: none;
+  margin-bottom: 4%;
+  font-weight: bold;
+  margin-left: 15%;
+  justify-content: center;
+  text-align: center;
+}
+
+.premier-button-site:hover{
+  text-decoration: none;
+  color: #3E49E3;
+  background-color: #99B8FE;
 }
 
 .cta-orange:hover {
