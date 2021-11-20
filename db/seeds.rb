@@ -110,18 +110,18 @@ img_user_8 = File.open("#{Rails.root}/app/assets/images/jeremy.jpeg")
 jeremy.avatar.attach(io: img_user_8, filename: "jeremy.jpeg", content_type: 'image/jpeg')
 jeremy.save!
 
-paul = User.new(email: "paul@gmail.com",
-password: "paul@gmail.com", 
-first_name: "Paul",
+franck = User.new(email: "franck@gmail.com",
+password: "franck@gmail.com", 
+first_name: "Franck",
 last_name: "Barbedienne", 
 role:"senior",
-description: "Bonjour je m'appelle Paul, je suis un nouvel utilisateur sur Conviv'App 
+description: "Bonjour je m'appelle Franck, je suis un nouvel utilisateur sur Conviv'App 
 mais j'ai hâte d'utiliser ce superbe site !",
 birth_date: "1963-06-25")
 
 img_user_9 = File.open("#{Rails.root}/app/assets/images/paul.jpeg")
-paul.avatar.attach(io: img_user_9, filename: "paul.jpeg", content_type: 'image/jpeg')
-paul.save!
+franck.avatar.attach(io: img_user_9, filename: "paul.jpeg", content_type: 'image/jpeg')
+franck.save!
 
 yvette = User.new(email: "yvette@gmail.com",
 password: "yvette@gmail.com", 
@@ -271,7 +271,7 @@ offer_9 = Offer.new(
   date: "Mon, 29 Nov 2021",
   description: "Grand fan du jeu de société - le Loup Garou mais il me manque un participant. 🐺 ",
   tag_list:"Jeux",
-  user: paul
+  user: franck
 )
 
 img_9 = File.open("#{Rails.root}/app/assets/images/9.jpeg")
