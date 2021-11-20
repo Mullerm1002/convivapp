@@ -35,7 +35,7 @@ class OffersController < ApplicationController
   def create
     @offer = Offer.new(offer_params)
     @offer.user = current_user
-    @offer.tag_list = params[:offer][:tags]
+    @offer.tag_list = params[:offer][:tag_list]
     authorize @offer
     if @offer.save
       redirect_to offer_path(@offer), notice: "L'invitation a été créée avec succès !"
