@@ -4,7 +4,18 @@ Chatroom.destroy_all
 User.destroy_all
 Offer.destroy_all
 
+paul = User.new(email: "paul@gmail.com",
+password: "paul@gmail.com", 
+first_name: "Paul",
+last_name: "Doorman", 
+role:"junior",
+description: "Bonjour je m'appelle Paul, je suis un nouvel utilisateur sur Conviv'App 
+mais j'ai hâte d'utiliser ce superbe site !",
+birth_date: "1960-11-20")
 
+img_user_1 = File.open("#{Rails.root}/app/assets/images/Alexx.jpeg")
+paul.avatar.attach(io: img_user_1, filename: "Alexx.jpeg", content_type: 'image/jpeg')
+paul.save!
 
 matt = User.new(email: "matt@gmail.com",
 password: "matt@gmail.com", 
