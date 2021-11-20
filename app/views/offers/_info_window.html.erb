@@ -1,13 +1,7 @@
 
-<%# <div class="cards-mapboxxx"> %>
-  <div class="card-category-mapboxxx">
-    <div class="">
-    <%=cl_image_tag(offer.photo.key.to_s, style: "background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))", class:"mapbox-image-cards")%>
-    </div>
-    
+  <div class="card-category-mapboxxx" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path offer.photo.key, height: 300, crop: :fill %>')">
       <span id="title-title-mapbox"><%= offer.title %></span>
       <br>
       <span id="date-date-mapbox"><%= offer.date %></span>
   </div>
-<%# </div> %>
 
