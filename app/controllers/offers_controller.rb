@@ -12,12 +12,11 @@ class OffersController < ApplicationController
           lat: offer.latitude,
           lng: offer.longitude,
           info_window: render_to_string(partial: "info_window", locals: { offer: offer }),
-          image_url:
-            if offer.user.avatar.attached?
-              helpers.asset_url("https://res.cloudinary.com/convivapp/image/upload/v1636813977/development/#{offer.user.avatar.key}.jpg")
-            else
-              helpers.asset_url("user.png")
-            end
+          image_url: helpers.asset_url("user.png")
+            # if offer.user.avatar.attached?
+            #   helpers.asset_url("https://res.cloudinary.com/convivapp/image/upload/v1636813977/development/#{offer.user.avatar.key}.jpg")
+            # else
+            # end
         }
       end
     end
