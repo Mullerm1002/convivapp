@@ -21,15 +21,14 @@ ActiveStorage.start()
 
 // External imports
 import "bootstrap";
-import 'mapbox-gl/dist/mapbox-gl.css';
 
 
 
 // Internal imports, e.g:
 // import { testFunction } from '../components/exemple';
 import { initMapbox } from '../plugins/init_mapbox';
-import { initAutocomplete } from '../plugins/init_autocomplete'
-import { initDashboard } from '../components/dashboard'
+import { initAutocomplete } from '../plugins/init_autocomplete';
+import { initDashboard } from '../components/dashboard';
 
 
 document.addEventListener('turbolinks:load', () => {
