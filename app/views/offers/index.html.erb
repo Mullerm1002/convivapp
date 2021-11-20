@@ -22,7 +22,7 @@
 <% @offers.each do |offer| %>
   <%= link_to offer_path(offer) do %> 
     <div class="wrapper">
-      <%= cl_image_tag(offer.photo.key.to_s, class:"plat top", width: 150, height: 150, crop: :thumb, gravity: :face) %>
+      <%= cl_image_tag(offer.photo.key.to_s, class:"plat top", width: 150, height: 150, gravity: :face) %>
       <h1 class="titre-de-offre"><%= offer.title %> </h1>
       <p class="description"><%= offer.description %></p>
         <% offer.tag_list.first&.split(" ")&.each do |tag| %>
