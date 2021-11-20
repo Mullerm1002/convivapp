@@ -1,8 +1,8 @@
 <div class="container-form" data-controller= "show-form">
   <h2>Créer votre compte 😁</h2>
     <p class="p-log" id="center">Rejoignez nous vite pour participer à cette grande aventure !</p>
-    <p class="p-log">Cliquez sur le visage de gauche pour vous inscrire en tant qu'étudiant. <br>
-    Cliquez sur le visage de droite pour vous inscrire en tant que senior</p>
+    <p class="p-log">Cliquez sur le visage de gauche pour vous inscrire en tant qu'étudiant. 👨‍🎓 <br>
+    Cliquez sur le visage de droite pour vous inscrire en tant que senior. 👨‍🦳</p>
 
   <div class="image-form">
     <div class="image-logo" data-show-form-target="image-junior">
@@ -17,8 +17,8 @@
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'd-none', data: { show_form_target: 'form' } } ) do |f| %>
       <%= f.error_notification %>
       
-      <p class= 'd-none' data-show-form-target='junior'> Hello Conviv'Appeur Junior 👨‍🎓 ! <br> Voici les informations dont nous avons besoin pour l'inscription :</p>
-      <p class= 'd-none' data-show-form-target='senior'> Hello Conviv'Appeur Senior 👨 ! <br> Voici les informations dont nous avons besoin pour l'inscription :</p>
+      <p class= 'd-none' data-show-form-target='junior'> Hello Conviv'Appeur Junior 👨‍🎓 ! <br> Voici les informations dont nous avons besoin pour ton inscription :</p>
+      <p class= 'd-none' data-show-form-target='senior'> Hello Conviv'Appeur Senior 👨 ! <br> Voici les informations dont nous avons besoin pour votre inscription :</p>
 
       <div class="form-inputs">
         <%= f.input :first_name, label: "Prénom :",
@@ -37,7 +37,7 @@
         %>
 
         <%= f.input :avatar, as: :file,
-                      label: "Votre photo de profil" 
+                      label: "Votre photo de profil :" 
         %>
                     
         <%= f.input :description, :as => :text, 
@@ -64,6 +64,7 @@
         %>
 
         <%= f.input :password_confirmation,
+                    label:"Confirmez votre mot de passe",
                     required: true,
                     input_html: { autocomplete: "password" } 
         %>
