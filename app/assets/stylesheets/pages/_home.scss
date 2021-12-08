@@ -189,3 +189,59 @@ body {
   margin-top: 0px;
   margin-left: 26px;
 }
+
+@media screen and (max-width: 667px) {
+  // img {
+  //   display: none; 
+  // }
+  .container-left h1 {
+    width: 160%;
+    margin-left: 26%;
+  }
+  .container-right img {
+    display: none; 
+  }
+  .cta-orange {
+    align-items: center;
+    margin-bottom: 12px;
+    margin-left: -85px;
+  }
+  .home-second-part {
+    margin-left: 38px;
+    margin-right: 35px;
+    margin-top: 10px;
+  }
+  // .item {
+  //   width: 300px;
+  // }
+  .item img {
+    display: none;
+  }
+  .text-left-pic-right {
+    display: contents;
+    .item {
+      width: 100%;
+    }
+    .item h2 {
+      margin-left: -140px;
+      margin-top: 18px;
+    }
+    #title-h2 {
+      margin-left: -102px;
+      margin-top: 18px;
+    }
+  }
+  .text-right-pic-left {
+    display: contents;
+    .item {
+      width: 100%;
+    }
+    .item h2 {
+      margin-left: -140px;
+      margin-top: 18px;
+    }
+  }
+  #carousel {
+    height: 264px;
+  }
+}

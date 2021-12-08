@@ -27,6 +27,11 @@
   color: #D23333;
 }
 
+@media screen and (max-width: 667px) {
+  .footer-links {
+    display: flow-root;
+  }
+}
 // .waves {
 //   position:relative;
 //   width: 100%;
